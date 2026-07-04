@@ -1,6 +1,6 @@
 ---
 project: OpenCC
-stars: 9781
+stars: 9797
 description: |-
     Library for conversion between Traditional and Simplified Chinese
 url: https://github.com/BYVoid/OpenCC
@@ -15,6 +15,8 @@ url: https://github.com/BYVoid/OpenCC
 [![Python CI](https://github.com/BYVoid/OpenCC/actions/workflows/python.yml/badge.svg)](https://github.com/BYVoid/OpenCC/actions/workflows/python.yml)
 [![AppVeyor](https://img.shields.io/appveyor/ci/Carbo/OpenCC.svg)](https://ci.appveyor.com/project/Carbo/OpenCC)
 
+[![GitHub downloads](https://img.shields.io/github/downloads/BYVoid/OpenCC/total)](https://github.com/BYVoid/OpenCC/releases)
+[![WinGet](https://img.shields.io/winget/v/BYVoid.OpenCC)](https://winstall.app/apps/BYVoid.OpenCC)
 [![npm package badge](https://img.shields.io/npm/v/opencc)](https://www.npmjs.com/package/opencc)
 [![PyPI version](https://img.shields.io/pypi/v/opencc.svg)](https://pypi.org/project/opencc/)
 [![Debian package](https://img.shields.io/debian/v/opencc/unstable)](https://packages.debian.org/search?keywords=opencc)
@@ -61,12 +63,15 @@ Discussion (Telegram): https://t.me/open_chinese_convert
 
 ### Prebuilt binaries 預編譯二進位檔
 
-* Windows (x86_64): [OpenCC-1.3.1](https://github.com/BYVoid/OpenCC/releases/download/ver.1.3.1/OpenCC-1.3.1-windows-x64-portable.zip) ([SHA-256](https://github.com/BYVoid/OpenCC/releases/download/ver.1.3.1/OpenCC-1.3.1-windows-x64-portable.zip.sha256))
+OpenCC 1.4.0 主要更新是將 C++ ABI / SOVERSION 提升至 1.4，避免舊版
+`libopencc.so.1.3` 使用者靜默載入 ABI 不相容的新版本；下游 C++ 程式需重新鏈結。
+
+* Windows (x86_64): [OpenCC-1.4.0](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.0/OpenCC-1.4.0-windows-x64-portable.zip) ([SHA-256](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.0/OpenCC-1.4.0-windows-x64-portable.zip.sha256))
     * This Windows release is available from WinGet. For details, see [doc/windows-winget-release.md](doc/windows-winget-release.md).
     * Requires Microsoft Visual C++ Redistributable for Visual Studio 2015-2026. Download the latest version from [Microsoft](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version).
 * Debian/Ubuntu (amd64):
-    * [opencc_1.3.1_amd64.deb](https://github.com/BYVoid/OpenCC/releases/download/ver.1.3.1/opencc_1.3.1_amd64.deb)
-    * [opencc-jieba_1.3.1_amd64.deb](https://github.com/BYVoid/OpenCC/releases/download/ver.1.3.1/opencc-jieba_1.3.1_amd64.deb)
+    * [opencc_1.4.0_amd64.deb](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.0/opencc_1.4.0_amd64.deb)
+    * [opencc-jieba_1.4.0_amd64.deb](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.0/opencc-jieba_1.4.0_amd64.deb)
 
 ## Usage 使用
 
@@ -223,18 +228,26 @@ These modes are useful for diagnosing conversion issues:
 Rules:
 - `--segmentation` and `--inspect` are mutually exclusive.
 
+### Official / Recommended Ports
+
+The following ports are maintained within the OpenCC ecosystem and are generally up to date with current configuration and dictionary data.
+
+* Data package: [opencc-data](https://www.npmjs.com/package/opencc-data)
+* Pure JavaScript: [opencc-js](https://www.npmjs.com/package/opencc-js)
+    * See [notes about different OpenCC NPM packages](#links-%E7%9B%B8%E9%97%9C%E9%8F%88%E6%8E%A5) below.
+* WebAssembly: [opencc-wasm](https://www.npmjs.com/package/opencc-wasm) ([website](https://opencc.js.org/))
+* Pure Python: [opencc-py](https://pypi.org/project/opencc-py/) (pre-release)
+
 ### Other Ports (Unofficial)
+
+These ports are community-maintained and may not always track upstream updates.
 
 * Swift (iOS): [SwiftyOpenCC](https://github.com/XQS6LB3A/SwiftyOpenCC)
 * iOSOpenCC (pod): [iOSOpenCC](https://github.com/swiftdo/OpenCC)
 * Java: [opencc4j](https://github.com/houbb/opencc4j)
 * Android: [android-opencc](https://github.com/qichuan/android-opencc)
 * PHP: [opencc4php](https://github.com/nauxliu/opencc4php)
-* Pure JavaScript: [opencc-js](https://github.com/nk2028/opencc-js)
-    * See [notes about different OpenCC NPM packages](#links-%E7%9B%B8%E9%97%9C%E9%8F%88%E6%8E%A5) below.
-* WebAssembly:
-    * [opencc-wasm](https://www.npmjs.com/package/opencc-wasm) ([website](https://opencc.js.org/))
-    * [wasm-opencc](https://github.com/oyyd/wasm-opencc)
+* WebAssembly: [wasm-opencc](https://github.com/oyyd/wasm-opencc)
 * Browser Extension: [opencc-extension](https://github.com/tnychn/opencc-extension)
 * Go (Pure): [OpenCC for Go](https://github.com/longbridge/opencc)
 * Dart (native-assets): [opencc-dart](https://github.com/lindeer/opencc-dart)
@@ -422,6 +435,10 @@ Please update if your project is using OpenCC.
 * [alfred-chinese-converter](https://github.com/amowu/alfred-chinese-converter)
 * [GoldenDict](https://github.com/goldendict/goldendict)
 * [China Biographical Database Project (CBDB)](https://cbdb.hsites.harvard.edu/)
+* [OpenCC-Traditional Chinese to Traditional Chinese (The Chinese Government Standard)](https://github.com/TerryTian-tech/OpenCC-Traditional-Chinese-characters-according-to-Chinese-government-standards)
+   * 將混雜不同標準的繁體字形轉換為中國《通用規範漢字表》(2013) 中的繁體字形
+   * [展示說明頁面](https://terrytian-tech.github.io/OpenCC-Traditional-Chinese-characters-according-to-Chinese-government-standards/)
+   * [轉換方案設計說明](https://github.com/TerryTian-tech/OpenCC-Traditional-Chinese-characters-according-to-Chinese-government-standards/blob/main/doc/%E3%80%8A%E9%80%9A%E7%94%A8%E8%A7%84%E8%8C%83%E6%B1%89%E5%AD%97%E8%A1%A8%E3%80%8B%E8%A7%84%E8%8C%83%E7%B9%81%E4%BD%93%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1%E8%AF%B4%E6%98%8E.md)
 
 ## License 許可協議
 

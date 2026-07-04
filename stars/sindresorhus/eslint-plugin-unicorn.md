@@ -1,6 +1,6 @@
 ---
 project: eslint-plugin-unicorn
-stars: 5153
+stars: 5171
 description: |-
     More than 300 powerful ESLint rules
 url: https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -233,6 +233,7 @@ export default defineConfig([
 | [no-unnecessary-array-splice-count](docs/rules/no-unnecessary-array-splice-count.md)                       | Disallow using `.length` or `Infinity` as the `deleteCount` or `skipCount` argument of `Array#{splice,toSpliced}()`.           | ✅ ☑️ | 🔧 |    |    |
 | [no-unnecessary-await](docs/rules/no-unnecessary-await.md)                                                 | Disallow awaiting non-promise values.                                                                                          | ✅ ☑️ | 🔧 |    |    |
 | [no-unnecessary-boolean-comparison](docs/rules/no-unnecessary-boolean-comparison.md)                       | Disallow unnecessary comparisons against boolean literals.                                                                     | ✅    | 🔧 |    |    |
+| [no-unnecessary-fetch-options](docs/rules/no-unnecessary-fetch-options.md)                                 | Disallow unnecessary options in `fetch()` and `new Request()`.                                                                 | ✅ ☑️ | 🔧 |    |    |
 | [no-unnecessary-global-this](docs/rules/no-unnecessary-global-this.md)                                     | Disallow unnecessary `globalThis` references.                                                                                  | ✅ ☑️ | 🔧 |    |    |
 | [no-unnecessary-nested-ternary](docs/rules/no-unnecessary-nested-ternary.md)                               | Disallow unnecessary nested ternary expressions.                                                                               | ✅ ☑️ | 🔧 |    |    |
 | [no-unnecessary-polyfills](docs/rules/no-unnecessary-polyfills.md)                                         | Enforce the use of built-in methods instead of unnecessary polyfills.                                                          | ✅ ☑️ |    |    |    |
@@ -374,6 +375,7 @@ export default defineConfig([
 | [prefer-short-arrow-method](docs/rules/prefer-short-arrow-method.md)                                       | Prefer arrow function properties over methods with a single return.                                                            |      | 🔧 |    |    |
 | [prefer-simple-condition-first](docs/rules/prefer-simple-condition-first.md)                               | Prefer simple conditions first in logical expressions.                                                                         | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-simple-sort-comparator](docs/rules/prefer-simple-sort-comparator.md)                               | Prefer a simple comparison function for `Array#sort()`.                                                                        | ✅ ☑️ |    | 💡 |    |
+| [prefer-simplified-conditions](docs/rules/prefer-simplified-conditions.md)                                 | Prefer simplified conditions.                                                                                                  | ✅ ☑️ | 🔧 |    |    |
 | [prefer-single-array-predicate](docs/rules/prefer-single-array-predicate.md)                               | Prefer a single `Array#some()` or `Array#every()` with a combined predicate.                                                   | ✅ ☑️ |    | 💡 |    |
 | [prefer-single-call](docs/rules/prefer-single-call.md)                                                     | Enforce combining multiple `Array#{push,unshift}()`, `Element#classList.{add,remove}()`, and `importScripts()` into one call.  | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-single-object-destructuring](docs/rules/prefer-single-object-destructuring.md)                     | Prefer a single object destructuring declaration per local const source.                                                       | ✅    | 🔧 |    |    |
@@ -397,7 +399,7 @@ export default defineConfig([
 | [prefer-top-level-await](docs/rules/prefer-top-level-await.md)                                             | Prefer top-level await over top-level promises and async function calls.                                                       | ✅ ☑️ |    | 💡 |    |
 | [prefer-type-error](docs/rules/prefer-type-error.md)                                                       | Enforce throwing `TypeError` in type checking conditions.                                                                      | ✅ ☑️ | 🔧 |    |    |
 | [prefer-type-literal-last](docs/rules/prefer-type-literal-last.md)                                         | Require type literals to be last in union types.                                                                               | ✅    | 🔧 |    |    |
-| [prefer-uint8array-base64](docs/rules/prefer-uint8array-base64.md)                                         | Prefer `Uint8Array#toBase64()` and `Uint8Array.fromBase64()` over `atob()`, `btoa()`, and `Buffer` base64 conversions.         | ✅ ☑️ |    | 💡 |    |
+| [prefer-uint8array-base64](docs/rules/prefer-uint8array-base64.md)                                         | Prefer `Uint8Array#toBase64()` and `Uint8Array.fromBase64()` over `atob()`, `btoa()`, and `Buffer` base64 conversions.         |      |    | 💡 |    |
 | [prefer-unary-minus](docs/rules/prefer-unary-minus.md)                                                     | Prefer the unary minus operator over multiplying or dividing by `-1`.                                                          | ✅ ☑️ | 🔧 |    |    |
 | [prefer-unicode-code-point-escapes](docs/rules/prefer-unicode-code-point-escapes.md)                       | Prefer Unicode code point escapes over legacy escape sequences.                                                                | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-url-can-parse](docs/rules/prefer-url-can-parse.md)                                                 | Prefer `URL.canParse()` over constructing a `URL` in a try/catch for validation.                                               | ✅ ☑️ | 🔧 |    |    |
@@ -572,4 +574,8 @@ export default defineConfig([
 
 - [Sindre Sorhus](https://github.com/sindresorhus)
 - [Fisker Cheung](https://github.com/fisker)
+
+## Related
+
+- [eslint-node-test](https://github.com/sindresorhus/eslint-node-test) — ESLint rules for the Node.js built-in test runner.
 

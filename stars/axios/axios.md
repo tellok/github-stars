@@ -1,6 +1,6 @@
 ---
 project: axios
-stars: 109108
+stars: 109106
 description: |-
     Promise based HTTP client for the browser and node.js
 url: https://github.com/axios/axios
@@ -749,6 +749,9 @@ These config options are available for requests. Only `url` is required. Request
   // Axios prepends `baseURL` to `url` unless `url` is absolute and `allowAbsoluteUrls` is set to true.
   // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
   // to the methods of that instance.
+  // `baseURL` is not a security boundary. If `url` is attacker-controlled, validate it
+  // before passing it to axios. Relative URLs can contain `..` segments that resolve
+  // outside an intended path prefix after the final URL is parsed.
   baseURL: 'https://some-domain.com/api/',
 
   // `allowAbsoluteUrls` determines whether or not absolute URLs will override a configured `baseUrl`.

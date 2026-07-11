@@ -1,6 +1,6 @@
 ---
 project: eslint-plugin-unicorn
-stars: 5171
+stars: 5183
 description: |-
     More than 300 powerful ESLint rules
 url: https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -199,6 +199,7 @@ export default defineConfig([
 | [no-manually-wrapped-comments](docs/rules/no-manually-wrapped-comments.md)                                 | Disallow manually wrapped comments.                                                                                            |      | 🔧 |    |    |
 | [no-mismatched-map-key](docs/rules/no-mismatched-map-key.md)                                               | Disallow checking a Map key before accessing a different key.                                                                  | ✅    |    |    |    |
 | [no-misrefactored-assignment](docs/rules/no-misrefactored-assignment.md)                                   | Disallow misrefactored compound assignments where the target is duplicated in the right-hand side.                             | ✅ ☑️ |    | 💡 |    |
+| [no-multiple-promise-resolver-calls](docs/rules/no-multiple-promise-resolver-calls.md)                     | Disallow calling Promise executor resolver functions more than once on the same execution path.                                | ✅ ☑️ |    |    |    |
 | [no-named-default](docs/rules/no-named-default.md)                                                         | Disallow named usage of default import and export.                                                                             | ✅ ☑️ | 🔧 |    |    |
 | [no-negated-array-predicate](docs/rules/no-negated-array-predicate.md)                                     | Disallow negated array predicate calls.                                                                                        | ✅ ☑️ | 🔧 |    |    |
 | [no-negated-comparison](docs/rules/no-negated-comparison.md)                                               | Disallow negated comparisons.                                                                                                  | ✅ ☑️ | 🔧 | 💡 |    |
@@ -239,6 +240,7 @@ export default defineConfig([
 | [no-unnecessary-polyfills](docs/rules/no-unnecessary-polyfills.md)                                         | Enforce the use of built-in methods instead of unnecessary polyfills.                                                          | ✅ ☑️ |    |    |    |
 | [no-unnecessary-slice-end](docs/rules/no-unnecessary-slice-end.md)                                         | Disallow using `.length` or `Infinity` as the `end` argument of `{Array,String,TypedArray}#slice()`.                           | ✅ ☑️ | 🔧 |    |    |
 | [no-unnecessary-splice](docs/rules/no-unnecessary-splice.md)                                               | Disallow `Array#splice()` when simpler alternatives exist.                                                                     | ✅    | 🔧 |    |    |
+| [no-unnecessary-string-trim](docs/rules/no-unnecessary-string-trim.md)                                     | Disallow `String#trim()` before `String#startsWith()` or `String#endsWith()`.                                                  | ✅ ☑️ | 🔧 |    |    |
 | [no-unreadable-array-destructuring](docs/rules/no-unreadable-array-destructuring.md)                       | Disallow unreadable array destructuring.                                                                                       | ✅ ☑️ | 🔧 |    |    |
 | [no-unreadable-for-of-expression](docs/rules/no-unreadable-for-of-expression.md)                           | Disallow unreadable iterable expressions in `for…of` and `for await…of` loop headers.                                          | ✅    |    |    |    |
 | [no-unreadable-iife](docs/rules/no-unreadable-iife.md)                                                     | Disallow unreadable IIFEs.                                                                                                     | ✅ ☑️ |    | 💡 |    |
@@ -389,12 +391,13 @@ export default defineConfig([
 | [prefer-string-repeat](docs/rules/prefer-string-repeat.md)                                                 | Prefer `String#repeat()` for repeated whitespace.                                                                              | ✅ ☑️ | 🔧 |    |    |
 | [prefer-string-replace-all](docs/rules/prefer-string-replace-all.md)                                       | Prefer `String#replaceAll()` over regex searches with the global flag and `String#split().join()`.                             | ✅ ☑️ | 🔧 |    |    |
 | [prefer-string-slice](docs/rules/prefer-string-slice.md)                                                   | Prefer `String#slice()` over `String#substr()` and `String#substring()`.                                                       | ✅ ☑️ | 🔧 |    |    |
-| [prefer-string-starts-ends-with](docs/rules/prefer-string-starts-ends-with.md)                             | Prefer `String#startsWith()` & `String#endsWith()` over `RegExp#test()` and `String#indexOf() === 0`.                          | ✅ ☑️ | 🔧 | 💡 |    |
+| [prefer-string-starts-ends-with](docs/rules/prefer-string-starts-ends-with.md)                             | Prefer `String#startsWith()` & `String#endsWith()` over regexes, `String#indexOf() === 0`, and slice checks.                   | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-string-trim-start-end](docs/rules/prefer-string-trim-start-end.md)                                 | Prefer `String#trimStart()` / `String#trimEnd()` over `String#trimLeft()` / `String#trimRight()`.                              | ✅ ☑️ | 🔧 |    |    |
 | [prefer-structured-clone](docs/rules/prefer-structured-clone.md)                                           | Prefer using `structuredClone` to create a deep clone.                                                                         | ✅ ☑️ |    | 💡 |    |
 | [prefer-switch](docs/rules/prefer-switch.md)                                                               | Prefer `switch` over multiple `else-if`.                                                                                       | ✅ ☑️ | 🔧 |    |    |
 | [prefer-temporal](docs/rules/prefer-temporal.md)                                                           | Prefer `Temporal` over `Date`.                                                                                                 |      | 🔧 | 💡 |    |
 | [prefer-ternary](docs/rules/prefer-ternary.md)                                                             | Prefer ternary expressions over simple `if` statements that return or assign values.                                           | ✅ ☑️ | 🔧 | 💡 |    |
+| [prefer-then-catch](docs/rules/prefer-then-catch.md)                                                       | Prefer `.then().catch()` over `.then(…, …)` for error handling.                                                                | ✅    |    | 💡 |    |
 | [prefer-toggle-attribute](docs/rules/prefer-toggle-attribute.md)                                           | Prefer using `Element#toggleAttribute()` to toggle attributes.                                                                 | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-top-level-await](docs/rules/prefer-top-level-await.md)                                             | Prefer top-level await over top-level promises and async function calls.                                                       | ✅ ☑️ |    | 💡 |    |
 | [prefer-type-error](docs/rules/prefer-type-error.md)                                                       | Enforce throwing `TypeError` in type checking conditions.                                                                      | ✅ ☑️ | 🔧 |    |    |
@@ -410,6 +413,7 @@ export default defineConfig([
 | [require-array-join-separator](docs/rules/require-array-join-separator.md)                                 | Enforce using the separator argument with `Array#join()`.                                                                      | ✅ ☑️ | 🔧 |    |    |
 | [require-array-sort-compare](docs/rules/require-array-sort-compare.md)                                     | Require a compare function when calling `Array#sort()` or `Array#toSorted()`.                                                  | ✅ ☑️ |    | 💡 |    |
 | [require-css-escape](docs/rules/require-css-escape.md)                                                     | Require `CSS.escape()` for interpolated values in CSS selectors.                                                               | ✅ ☑️ | 🔧 |    |    |
+| [require-frontmatter-fields](docs/rules/require-frontmatter-fields.md)                                     | Require configured YAML frontmatter fields.                                                                                    |      |    |    |    |
 | [require-module-attributes](docs/rules/require-module-attributes.md)                                       | Require non-empty module attributes for imports and exports                                                                    | ✅ ☑️ | 🔧 |    |    |
 | [require-module-specifiers](docs/rules/require-module-specifiers.md)                                       | Require non-empty specifier list in import and export statements.                                                              | ✅ ☑️ | 🔧 | 💡 |    |
 | [require-number-to-fixed-digits-argument](docs/rules/require-number-to-fixed-digits-argument.md)           | Enforce using the digits argument with `Number#toFixed()`.                                                                     | ✅ ☑️ | 🔧 |    |    |
@@ -516,6 +520,7 @@ These rules also work on specific non-JavaScript languages:
 | [`no-empty-file`](docs/rules/no-empty-file.md) | ✅ | ✅ | ✅ | ✅ |
 | [`no-invalid-file-input-accept`](docs/rules/no-invalid-file-input-accept.md) |  | ✅ |  |  |
 | [`no-manually-wrapped-comments`](docs/rules/no-manually-wrapped-comments.md) |  |  | ✅ |  |
+| [`require-frontmatter-fields`](docs/rules/require-frontmatter-fields.md) |  |  |  | ✅ |
 | [`text-encoding-identifier-case`](docs/rules/text-encoding-identifier-case.md) | ✅ | ✅ |  |  |
 
 <!-- end auto-generated non-js languages list -->
@@ -570,12 +575,8 @@ export default defineConfig([
 ]);
 ```
 
-## Maintainers
-
-- [Sindre Sorhus](https://github.com/sindresorhus)
-- [Fisker Cheung](https://github.com/fisker)
-
 ## Related
 
 - [eslint-node-test](https://github.com/sindresorhus/eslint-node-test) — ESLint rules for the Node.js built-in test runner.
+- [eslint-package-json](https://github.com/sindresorhus/eslint-package-json) — Powerful ESLint rules for `package.json`.
 

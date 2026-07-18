@@ -1,6 +1,6 @@
 ---
 project: eslint-plugin-unicorn
-stars: 5183
+stars: 5194
 description: |-
     More than 300 powerful ESLint rules
 url: https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -199,6 +199,7 @@ export default defineConfig([
 | [no-manually-wrapped-comments](docs/rules/no-manually-wrapped-comments.md)                                 | Disallow manually wrapped comments.                                                                                            |      | 🔧 |    |    |
 | [no-mismatched-map-key](docs/rules/no-mismatched-map-key.md)                                               | Disallow checking a Map key before accessing a different key.                                                                  | ✅    |    |    |    |
 | [no-misrefactored-assignment](docs/rules/no-misrefactored-assignment.md)                                   | Disallow misrefactored compound assignments where the target is duplicated in the right-hand side.                             | ✅ ☑️ |    | 💡 |    |
+| [no-missing-local-resource](docs/rules/no-missing-local-resource.md)                                       | Disallow references to missing local resources.                                                                                |      | 🔧 |    |    |
 | [no-multiple-promise-resolver-calls](docs/rules/no-multiple-promise-resolver-calls.md)                     | Disallow calling Promise executor resolver functions more than once on the same execution path.                                | ✅ ☑️ |    |    |    |
 | [no-named-default](docs/rules/no-named-default.md)                                                         | Disallow named usage of default import and export.                                                                             | ✅ ☑️ | 🔧 |    |    |
 | [no-negated-array-predicate](docs/rules/no-negated-array-predicate.md)                                     | Disallow negated array predicate calls.                                                                                        | ✅ ☑️ | 🔧 |    |    |
@@ -218,6 +219,7 @@ export default defineConfig([
 | [no-redundant-comparison](docs/rules/no-redundant-comparison.md)                                           | Disallow comparisons made redundant by an equality check in the same logical AND.                                              | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-return-array-push](docs/rules/no-return-array-push.md)                                                 | Disallow using the return value of `Array#push()` and `Array#unshift()`.                                                       | ✅    |    | 💡 |    |
 | [no-selector-as-dom-name](docs/rules/no-selector-as-dom-name.md)                                           | Disallow selector syntax in DOM names.                                                                                         | ✅    | 🔧 |    |    |
+| [no-shorthand-property-overrides](docs/rules/no-shorthand-property-overrides.md)                           | Disallow shorthand properties that override related longhand properties.                                                       | ✅ ☑️ |    |    |    |
 | [no-single-promise-in-promise-methods](docs/rules/no-single-promise-in-promise-methods.md)                 | Disallow passing single-element arrays to `Promise` methods.                                                                   | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-static-only-class](docs/rules/no-static-only-class.md)                                                 | Disallow classes that only have static members.                                                                                | ✅ ☑️ | 🔧 |    |    |
 | [no-subtraction-comparison](docs/rules/no-subtraction-comparison.md)                                       | Prefer comparing values directly over subtracting and comparing to `0`.                                                        | ✅ ☑️ | 🔧 | 💡 |    |
@@ -226,6 +228,7 @@ export default defineConfig([
 | [no-this-outside-of-class](docs/rules/no-this-outside-of-class.md)                                         | Disallow `this` outside of classes.                                                                                            | ✅    |    |    |    |
 | [no-top-level-assignment-in-function](docs/rules/no-top-level-assignment-in-function.md)                   | Disallow assigning to top-level variables from inside functions.                                                               | ✅    |    |    |    |
 | [no-top-level-side-effects](docs/rules/no-top-level-side-effects.md)                                       | Disallow top-level side effects in exported modules.                                                                           | ✅ ☑️ |    |    |    |
+| [no-transition-all](docs/rules/no-transition-all.md)                                                       | Disallow `all` as a transition property.                                                                                       | ✅ ☑️ |    |    |    |
 | [no-typeof-undefined](docs/rules/no-typeof-undefined.md)                                                   | Disallow comparing `undefined` using `typeof`.                                                                                 | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-uncalled-method](docs/rules/no-uncalled-method.md)                                                     | Disallow referencing methods without calling them.                                                                             | ✅    |    |    |    |
 | [no-undeclared-class-members](docs/rules/no-undeclared-class-members.md)                                   | Require class members to be declared.                                                                                          | ✅    |    | 💡 |    |
@@ -268,6 +271,7 @@ export default defineConfig([
 | [no-useless-logical-operand](docs/rules/no-useless-logical-operand.md)                                     | Disallow unnecessary operands in logical expressions involving boolean literals.                                               | ✅ ☑️ | 🔧 |    |    |
 | [no-useless-override](docs/rules/no-useless-override.md)                                                   | Disallow useless overrides of class methods.                                                                                   | ✅ ☑️ | 🔧 |    |    |
 | [no-useless-promise-resolve-reject](docs/rules/no-useless-promise-resolve-reject.md)                       | Disallow returning/yielding `Promise.resolve/reject()` in async functions or promise callbacks                                 | ✅ ☑️ | 🔧 |    |    |
+| [no-useless-re-export](docs/rules/no-useless-re-export.md)                                                 | Disallow redundant re-exports.                                                                                                 | ✅ ☑️ |    |    |    |
 | [no-useless-recursion](docs/rules/no-useless-recursion.md)                                                 | Disallow simple recursive function calls that can be replaced with a loop.                                                     | ✅    |    |    |    |
 | [no-useless-spread](docs/rules/no-useless-spread.md)                                                       | Disallow unnecessary spread.                                                                                                   | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-useless-switch-case](docs/rules/no-useless-switch-case.md)                                             | Disallow useless case in switch statements.                                                                                    | ✅ ☑️ |    | 💡 |    |
@@ -295,7 +299,7 @@ export default defineConfig([
 | [prefer-array-slice](docs/rules/prefer-array-slice.md)                                                     | Prefer `Array#slice()` over `Array#splice()` when reading from the returned array.                                             | ✅    |    | 💡 |    |
 | [prefer-array-some](docs/rules/prefer-array-some.md)                                                       | Prefer `.some(…)` over `.filter(…).length` check and `.{find,findLast,findIndex,findLastIndex}(…)`.                            | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-at](docs/rules/prefer-at.md)                                                                       | Prefer `.at()` method for index access and `String#charAt()`.                                                                  | ✅ ☑️ | 🔧 | 💡 |    |
-| [prefer-await](docs/rules/prefer-await.md)                                                                 | Prefer `await` over promise chaining.                                                                                          | ✅ ☑️ |    |    |    |
+| [prefer-await](docs/rules/prefer-await.md)                                                                 | Prefer `await` over promise chaining.                                                                                          | ✅ ☑️ |    | 💡 |    |
 | [prefer-bigint-literals](docs/rules/prefer-bigint-literals.md)                                             | Prefer `BigInt` literals over the constructor.                                                                                 | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-blob-reading-methods](docs/rules/prefer-blob-reading-methods.md)                                   | Prefer `Blob#arrayBuffer()` over `FileReader#readAsArrayBuffer(…)` and `Blob#text()` over `FileReader#readAsText(…)`.          | ✅ ☑️ |    |    |    |
 | [prefer-block-statement-over-iife](docs/rules/prefer-block-statement-over-iife.md)                         | Prefer block statements over IIFEs used only for scoping.                                                                      | ✅ ☑️ | 🔧 |    |    |
@@ -309,7 +313,7 @@ export default defineConfig([
 | [prefer-direct-iteration](docs/rules/prefer-direct-iteration.md)                                           | Prefer direct iteration over default iterator method calls.                                                                    | ✅ ☑️ | 🔧 |    |    |
 | [prefer-dispose](docs/rules/prefer-dispose.md)                                                             | Prefer using `using`/`await using` over manual `try`/`finally` resource disposal.                                              |      |    | 💡 |    |
 | [prefer-dom-node-append](docs/rules/prefer-dom-node-append.md)                                             | Prefer `Element#append()` over `Node#appendChild()`.                                                                           | ✅ ☑️ | 🔧 |    |    |
-| [prefer-dom-node-html-methods](docs/rules/prefer-dom-node-html-methods.md)                                 | Prefer `.getHTML()` and `.setHTML()` over `.innerHTML`.                                                                        |      | 🔧 | 💡 |    |
+| [prefer-dom-node-html-methods](docs/rules/prefer-dom-node-html-methods.md)                                 | Prefer `.getHTML()` and `.setHTML()` over `.innerHTML`.                                                                        | ✅    | 🔧 | 💡 |    |
 | [prefer-dom-node-remove](docs/rules/prefer-dom-node-remove.md)                                             | Prefer `childNode.remove()` over `parentNode.removeChild(childNode)`.                                                          | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-dom-node-replace-children](docs/rules/prefer-dom-node-replace-children.md)                         | Prefer `.replaceChildren()` when emptying DOM children.                                                                        | ✅ ☑️ | 🔧 |    |    |
 | [prefer-dom-node-text-content](docs/rules/prefer-dom-node-text-content.md)                                 | Prefer `.textContent` over `.innerText`.                                                                                       | ✅ ☑️ |    | 💡 |    |
@@ -317,6 +321,7 @@ export default defineConfig([
 | [prefer-else-if](docs/rules/prefer-else-if.md)                                                             | Prefer `else if` over adjacent `if` statements with related conditions.                                                        | ✅    | 🔧 | 💡 |    |
 | [prefer-error-is-error](docs/rules/prefer-error-is-error.md)                                               | Prefer `Error.isError()` when checking for errors.                                                                             |      | 🔧 |    |    |
 | [prefer-event-target](docs/rules/prefer-event-target.md)                                                   | Prefer `EventTarget` over `EventEmitter`.                                                                                      | ✅ ☑️ |    |    |    |
+| [prefer-explicit-viewport-units](docs/rules/prefer-explicit-viewport-units.md)                             | Prefer explicit viewport units.                                                                                                |      |    | 💡 |    |
 | [prefer-export-from](docs/rules/prefer-export-from.md)                                                     | Prefer `export…from` when re-exporting.                                                                                        | ✅    | 🔧 | 💡 |    |
 | [prefer-flat-math-min-max](docs/rules/prefer-flat-math-min-max.md)                                         | Prefer flat `Math.min()` and `Math.max()` calls over nested calls.                                                             | ✅ ☑️ | 🔧 |    |    |
 | [prefer-get-or-insert-computed](docs/rules/prefer-get-or-insert-computed.md)                               | Prefer `.getOrInsertComputed()` when the default value has side effects.                                                       | ✅    | 🔧 |    |    |
@@ -375,7 +380,7 @@ export default defineConfig([
 | [prefer-set-methods](docs/rules/prefer-set-methods.md)                                                     | Prefer `Set` methods for Set operations.                                                                                       | ✅    | 🔧 | 💡 |    |
 | [prefer-set-size](docs/rules/prefer-set-size.md)                                                           | Prefer using `Set#size` instead of `Array#length`.                                                                             | ✅ ☑️ | 🔧 |    |    |
 | [prefer-short-arrow-method](docs/rules/prefer-short-arrow-method.md)                                       | Prefer arrow function properties over methods with a single return.                                                            |      | 🔧 |    |    |
-| [prefer-simple-condition-first](docs/rules/prefer-simple-condition-first.md)                               | Prefer simple conditions first in logical expressions.                                                                         | ✅ ☑️ | 🔧 | 💡 |    |
+| [prefer-simple-condition-first](docs/rules/prefer-simple-condition-first.md)                               | Prefer simple conditions first in logical expressions.                                                                         | ✅    | 🔧 |    |    |
 | [prefer-simple-sort-comparator](docs/rules/prefer-simple-sort-comparator.md)                               | Prefer a simple comparison function for `Array#sort()`.                                                                        | ✅ ☑️ |    | 💡 |    |
 | [prefer-simplified-conditions](docs/rules/prefer-simplified-conditions.md)                                 | Prefer simplified conditions.                                                                                                  | ✅ ☑️ | 🔧 |    |    |
 | [prefer-single-array-predicate](docs/rules/prefer-single-array-predicate.md)                               | Prefer a single `Array#some()` or `Array#every()` with a combined predicate.                                                   | ✅ ☑️ |    | 💡 |    |
@@ -449,7 +454,12 @@ import {defineConfig} from 'eslint/config';
 export default defineConfig([
 	{
 		files: ['**/*.js'],
-		extends: [unicorn.configs.recommended],
+		plugins: {
+			unicorn,
+		},
+		extends: [
+			'unicorn/recommended',
+		],
 	},
 	{
 		files: ['**/*.json'],
@@ -471,6 +481,7 @@ export default defineConfig([
 		},
 		language: 'css/css',
 		rules: {
+			'unicorn/prefer-explicit-viewport-units': 'error',
 			'unicorn/prefer-https': 'error',
 			'unicorn/text-encoding-identifier-case': 'error',
 		},
@@ -520,6 +531,10 @@ These rules also work on specific non-JavaScript languages:
 | [`no-empty-file`](docs/rules/no-empty-file.md) | ✅ | ✅ | ✅ | ✅ |
 | [`no-invalid-file-input-accept`](docs/rules/no-invalid-file-input-accept.md) |  | ✅ |  |  |
 | [`no-manually-wrapped-comments`](docs/rules/no-manually-wrapped-comments.md) |  |  | ✅ |  |
+| [`no-missing-local-resource`](docs/rules/no-missing-local-resource.md) | ✅ | ✅ |  | ✅ |
+| [`no-shorthand-property-overrides`](docs/rules/no-shorthand-property-overrides.md) | ✅ |  |  |  |
+| [`no-transition-all`](docs/rules/no-transition-all.md) | ✅ |  |  |  |
+| [`prefer-explicit-viewport-units`](docs/rules/prefer-explicit-viewport-units.md) | ✅ |  |  |  |
 | [`require-frontmatter-fields`](docs/rules/require-frontmatter-fields.md) |  |  |  | ✅ |
 | [`text-encoding-identifier-case`](docs/rules/text-encoding-identifier-case.md) | ✅ | ✅ |  |  |
 
@@ -547,7 +562,12 @@ export default defineConfig([
 	// …
 	{
 		files: ['**/*.js'],
-		extends: [unicorn.configs.recommended],
+		plugins: {
+			unicorn,
+		},
+		extends: [
+			'unicorn/recommended',
+		],
 		rules: {
 			'unicorn/prefer-module': 'warn',
 		},
@@ -557,7 +577,7 @@ export default defineConfig([
 
 ### All config
 
-This plugin exports an `all` config that enables every rule, except deprecated ones.
+This plugin exports an `all` config that enables every JavaScript-compatible rule, except deprecated ones.
 
 ```js
 import unicorn from 'eslint-plugin-unicorn';
@@ -567,7 +587,12 @@ export default defineConfig([
 	// …
 	{
 		files: ['**/*.js'],
-		extends: [unicorn.configs.all],
+		plugins: {
+			unicorn,
+		},
+		extends: [
+			'unicorn/all',
+		],
 		rules: {
 			'unicorn/prefer-module': 'warn',
 		},

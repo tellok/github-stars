@@ -1,6 +1,6 @@
 ---
 project: xterm.js
-stars: 20882
+stars: 20926
 description: |-
     A terminal for the web
 url: https://github.com/xtermjs/xterm.js

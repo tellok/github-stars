@@ -1,6 +1,6 @@
 ---
 project: OpenCC
-stars: 9826
+stars: 9839
 description: |-
     Library for conversion between Traditional and Simplified Chinese
 url: https://github.com/BYVoid/OpenCC
@@ -26,9 +26,9 @@ url: https://github.com/BYVoid/OpenCC
 
 ![OpenCC](https://opencc.byvoid.com/img/opencc.png)
 
-Open Chinese Convert (OpenCC, 開放中文轉換) is an open source project for conversions between Traditional Chinese, Simplified Chinese and Japanese Kanji (Shinjitai). It supports character-level and phrase-level conversion, character variant handling, and regional vocabulary variants across Mainland China, Taiwan and Hong Kong. This is not a translation tool between Mandarin and Cantonese, etc.
+Open Chinese Convert (OpenCC, 開放中文轉換) is an open source project for high-quality conversion between Traditional Chinese, Simplified Chinese, Japanese Kanji (Shinjitai), character variants, and regional wording across Mainland China, Taiwan, and Hong Kong. It provides conversion dictionaries, a reusable library, command-line utilities, and dictionary generation tools. OpenCC performs orthographic conversion rather than language translation (for example, between Mandarin and Cantonese).
 
-中文簡繁轉換開源項目，支持詞彙級別的轉換、異體字轉換和地區習慣用詞轉換（中國大陸、台灣、香港）及日本新字體轉換。不提供普通話與粵語之間的轉換。
+Open Chinese Convert（OpenCC，開放中文轉換） 是一個開源中文轉換項目，支援繁體中文、簡體中文、日本新字體（新字体）、異體字，以及中國大陸、臺灣、香港等地區習慣用詞之間的高品質轉換，並提供轉換詞典、可重用函式庫、命令列工具及詞典生成工具。OpenCC 提供的是文字轉換，而非語言翻譯（例如普通話與粵語之間的翻譯）。
 
 Discussion (Telegram): https://t.me/open_chinese_convert
 
@@ -51,6 +51,7 @@ Discussion (Telegram): https://t.me/open_chinese_convert
 * [Fedora](https://packages.fedoraproject.org/pkgs/opencc/opencc/)
 * [Arch Linux](https://archlinux.org/packages/extra/x86_64/opencc/)
 * [macOS (Homebrew)](https://formulae.brew.sh/formula/opencc)
+    * 使用 `brew install opencc` 命令可安裝命令行工具；formula 更新至 1.4.1 後將包含 Jieba 分詞插件
 * [WinGet](https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/BYVoid/OpenCC)
     * 使用 `winget install opencc` 命令可直接安裝 opencc.exe 應用程式，含 Jieba 分詞插件
 * [Bazel](https://registry.bazel.build/modules/opencc)
@@ -63,15 +64,17 @@ Discussion (Telegram): https://t.me/open_chinese_convert
 
 ### Prebuilt binaries 預編譯二進位檔
 
-OpenCC 1.4.0 主要更新是將 C++ ABI / SOVERSION 提升至 1.4，避免舊版
-`libopencc.so.1.3` 使用者靜默載入 ABI 不相容的新版本；下游 C++ 程式需重新鏈結。
+OpenCC 1.4.1 修復 `opencc` npm 套件在無預編譯二進制平台上源碼編譯安裝失敗的
+問題，並包含一批詞庫修正；C++ ABI 與 1.4.0 相同（SOVERSION 1.4），自 1.4.0
+升級的下游 C++ 程式無需重新連結。
 
-* Windows (x86_64): [OpenCC-1.4.0](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.0/OpenCC-1.4.0-windows-x64-portable.zip) ([SHA-256](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.0/OpenCC-1.4.0-windows-x64-portable.zip.sha256))
+* Windows (x86_64): [OpenCC-1.4.1](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.1/OpenCC-1.4.1-windows-x64-portable.zip) ([SHA-256](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.1/OpenCC-1.4.1-windows-x64-portable.zip.sha256))
     * This Windows release is available from WinGet. For details, see [doc/windows-winget-release.md](doc/windows-winget-release.md).
     * Requires Microsoft Visual C++ Redistributable for Visual Studio 2015-2026. Download the latest version from [Microsoft](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version).
-* Debian/Ubuntu (amd64):
-    * [opencc_1.4.0_amd64.deb](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.0/opencc_1.4.0_amd64.deb)
-    * [opencc-jieba_1.4.0_amd64.deb](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.0/opencc-jieba_1.4.0_amd64.deb)
+* Debian/Ubuntu:
+    * [opencc-1.4.1-1-deb-amd64.zip](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.1/opencc-1.4.1-1-deb-amd64.zip)
+    * [opencc-1.4.1-1-deb-arm64.zip](https://github.com/BYVoid/OpenCC/releases/download/ver.1.4.1/opencc-1.4.1-1-deb-arm64.zip)
+    * Each zip bundles the `opencc`, `opencc-jieba`, and `libopencc*` deb packages for one architecture, with a `SHA256SUMS` file.
 
 ## Usage 使用
 
@@ -83,9 +86,14 @@ https://opencc.js.org/converter?config=s2t
 
 `npm install opencc`
 
-The npm package supports Node.js `>=20.17`. It uses bundled Node-API
-prebuilds when available and falls back to a local `node-gyp` build when the
-current platform does not have a matching prebuild.
+The npm package supports Node.js `>=20.17`. The native addon is installed
+through prebuilt `@opencc/opencc-<platform>-<arch>` packages covering macOS
+(x64/arm64), Linux (x64/arm64), and Windows (x64). On platforms without a
+prebuilt binary package, `npm install` builds from source with Bazel —
+compiling the addon and regenerating the dictionaries — which requires a
+C++ toolchain and network access; Bazel is found on PATH (`bazel` or
+`bazelisk`) or fetched automatically via `npx`, and Bazel downloads its own
+hermetic Python toolchain for the dictionary generation.
 
 Bun and Deno can also use the npm package through their npm compatibility
 support.
@@ -365,7 +373,7 @@ OpenCC now supports external C++ segmentation plugins. The first plugin is
 注意：
 
 - 該插件機制目前仍為試驗性功能。
-- `jieba` 插件是可選組件，預設 OpenCC 構建、Python 套件和 Node.js 套件都不要求它。
+- `jieba` 插件是可選組件，Python 套件和 Node.js 套件都不要求它。自 1.4.1 起，macOS 上的頂層 CMake 構建（含 Homebrew）預設啓用該插件（`BUILD_OPENCC_JIEBA_PLUGIN=ON`）；其他平台與以子項目方式引入的構建預設仍為關閉。
 - `opencc-jieba` 額外依賴 `cppjieba` 及其配套詞典資源，這些依賴僅在構建或分發該插件時需要。
 - 在下一次正式發布版本之前，插件 ABI 仍可能發生變化，不應視為穩定介面。
 - 我們預計從下一次正式發布版本開始，將插件 ABI 視為穩定介面。
@@ -374,8 +382,10 @@ OpenCC now supports external C++ segmentation plugins. The first plugin is
 Notes:
 
 - The plugin mechanism is currently experimental.
-- The `jieba` plugin is optional and is not required for the default OpenCC
-  build, Python package, or Node.js package.
+- The `jieba` plugin is optional and is not required by the Python package or
+  the Node.js package. Since 1.4.1, top-level CMake builds on macOS (including
+  Homebrew) enable the plugin by default (`BUILD_OPENCC_JIEBA_PLUGIN=ON`);
+  other platforms and subproject builds keep it disabled by default.
 - `opencc-jieba` additionally depends on `cppjieba` and its dictionary
   resources. These dependencies are only needed when building or distributing
   the plugin itself.

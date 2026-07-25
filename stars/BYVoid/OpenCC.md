@@ -1,6 +1,6 @@
 ---
 project: OpenCC
-stars: 9839
+stars: 9853
 description: |-
     Library for conversion between Traditional and Simplified Chinese
 url: https://github.com/BYVoid/OpenCC
@@ -105,8 +105,8 @@ npm install -g opencc
 opencc -c s2t.json -i input.txt -o output.txt
 ```
 
-The npm CLI supports basic text conversion. Plugins, `--inspect`, and
-`--segmentation` require the native OpenCC CLI.
+The npm CLI supports basic text conversion. Plugins, `--inspect`,
+`--segmentation`, and `--ambiguities` require the native OpenCC CLI.
 
 ```ts
 import { OpenCC } from 'opencc';
@@ -150,8 +150,8 @@ opencc -c s2t.json -i input.txt -o output.txt
 ```
 
 The Python CLI supports basic text conversion, `--include-tofu-risk-dictionaries`,
-and `--resource-zip`. Diagnostic modes such as `--inspect` and `--segmentation`
-still require the native OpenCC CLI.
+and `--resource-zip`. Diagnostic modes such as `--inspect`, `--segmentation`,
+and `--ambiguities` still require the native OpenCC CLI.
 
 ### C++
 
@@ -244,13 +244,45 @@ echo "他只看了几行日志，就一叶知秋，猜到整个系统是数据�
 echo "他只看了几行日志，就一叶知秋，猜到整个系统是数据库连接池出了问题" | opencc -c s2twp.json --inspect | jq .
 ```
 
+**`--ambiguities`** — Convert while marking every output span whose dictionary
+match is one-to-many (e.g. `文丑` may be either `文丑` or `文醜`), as a stream
+of JSONL records:
+
+```bash
+printf '大战文丑的时候，他的头发很干燥' | opencc -c s2t.json --ambiguities
+# {"def":"文丑"}
+# {"lit":"大戰"}
+# {"amb":{"t":"文丑","s":0}}
+# {"lit":"的時候，他的頭髮很乾燥"}
+# {"end":{"output_bytes":45,"ambiguities":1,"sources":1}}
+```
+
+Record kinds: `{"def"}` defines the next source index (each distinct input
+word is defined once, before its first reference); `{"lit"}` is a literal
+run of unambiguous output; `{"amb":{"t","s"}}` is an ambiguous span whose
+output text `t` (the default candidate) came from the source with index `s`;
+the final `{"end"}` record carries stream totals. Concatenating every `lit`
+and `amb.t` in order reproduces the plain conversion output exactly.
+Streaming is bounded-memory regardless of input size or line length, and
+positions are implicit in record order, so consumers can rebuild offsets in
+their own string-index units. Single-value conversions (e.g. `头发` →
+`頭髮`) are not flagged.
+
+The record stream is a machine-readable contract: every emitted line is
+valid JSON, and the final `{"end"}` record only appears when the whole
+input was processed. Input containing invalid UTF-8 aborts the stream with
+an error (unlike plain conversion, which is byte-transparent), and a
+missing `{"end"}` record means the stream is incomplete.
+
 These modes are useful for diagnosing conversion issues:
 
 1. Use `--segmentation` to verify that the input is segmented as expected.
 2. Use `--inspect` to see which conversion stage produces an unexpected result.
+3. Use `--ambiguities` to locate one-to-many conversions and resolve each
+   deduplicated `def` source to its candidates.
 
 Rules:
-- `--segmentation` and `--inspect` are mutually exclusive.
+- `--segmentation`, `--inspect`, and `--ambiguities` are mutually exclusive.
 
 ### Official / Recommended Ports
 

@@ -1,6 +1,6 @@
 ---
 project: lowdb
-stars: 22563
+stars: 22569
 description: |-
     Simple and fast JSON database
 url: https://github.com/typicode/lowdb

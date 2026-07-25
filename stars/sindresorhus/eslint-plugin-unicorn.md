@@ -1,6 +1,6 @@
 ---
 project: eslint-plugin-unicorn
-stars: 5194
+stars: 5201
 description: |-
     More than 300 powerful ESLint rules
 url: https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -155,6 +155,7 @@ export default defineConfig([
 | [no-async-promise-finally](docs/rules/no-async-promise-finally.md)                                         | Disallow async functions as `Promise#finally()` callbacks.                                                                     | ✅ ☑️ |    |    |    |
 | [no-await-expression-member](docs/rules/no-await-expression-member.md)                                     | Disallow member access from await expression.                                                                                  | ✅    | 🔧 |    |    |
 | [no-await-in-promise-methods](docs/rules/no-await-in-promise-methods.md)                                   | Disallow using `await` in `Promise` method parameters.                                                                         | ✅ ☑️ |    | 💡 |    |
+| [no-barrel-files](docs/rules/no-barrel-files.md)                                                           | Disallow barrel files.                                                                                                         |      |    |    |    |
 | [no-blob-to-file](docs/rules/no-blob-to-file.md)                                                           | Disallow unnecessary `Blob` to `File` conversion.                                                                              | ✅ ☑️ |    | 💡 |    |
 | [no-boolean-sort-comparator](docs/rules/no-boolean-sort-comparator.md)                                     | Disallow boolean-returning sort comparators.                                                                                   | ✅ ☑️ |    | 💡 |    |
 | [no-break-in-nested-loop](docs/rules/no-break-in-nested-loop.md)                                           | Disallow `break` and `continue` in nested loops and switches inside loops.                                                     | ✅    |    |    |    |
@@ -203,7 +204,7 @@ export default defineConfig([
 | [no-multiple-promise-resolver-calls](docs/rules/no-multiple-promise-resolver-calls.md)                     | Disallow calling Promise executor resolver functions more than once on the same execution path.                                | ✅ ☑️ |    |    |    |
 | [no-named-default](docs/rules/no-named-default.md)                                                         | Disallow named usage of default import and export.                                                                             | ✅ ☑️ | 🔧 |    |    |
 | [no-negated-array-predicate](docs/rules/no-negated-array-predicate.md)                                     | Disallow negated array predicate calls.                                                                                        | ✅ ☑️ | 🔧 |    |    |
-| [no-negated-comparison](docs/rules/no-negated-comparison.md)                                               | Disallow negated comparisons.                                                                                                  | ✅ ☑️ | 🔧 | 💡 |    |
+| [no-negated-comparison](docs/rules/no-negated-comparison.md)                                               | Disallow negated comparisons.                                                                                                  | ✅ ☑️ | 🔧 |    |    |
 | [no-negated-condition](docs/rules/no-negated-condition.md)                                                 | Disallow negated conditions.                                                                                                   | ✅ ☑️ | 🔧 |    |    |
 | [no-negation-in-equality-check](docs/rules/no-negation-in-equality-check.md)                               | Disallow negated expression in equality check.                                                                                 | ✅ ☑️ |    | 💡 |    |
 | [no-nested-ternary](docs/rules/no-nested-ternary.md)                                                       | Disallow nested ternary expressions.                                                                                           | ✅    | 🔧 |    |    |
@@ -253,6 +254,7 @@ export default defineConfig([
 | [no-unsafe-dom-html](docs/rules/no-unsafe-dom-html.md)                                                     | Disallow unsafe DOM HTML APIs.                                                                                                 |      |    |    |    |
 | [no-unsafe-promise-all-settled-values](docs/rules/no-unsafe-promise-all-settled-values.md)                 | Disallow reading `.value` from `Promise.allSettled()` results without a fulfilled status guard.                                | ✅ ☑️ |    |    |    |
 | [no-unsafe-property-key](docs/rules/no-unsafe-property-key.md)                                             | Disallow unsafe values as property keys.                                                                                       | ✅    |    |    |    |
+| [no-unsafe-sqlite-interpolation](docs/rules/no-unsafe-sqlite-interpolation.md)                             | Disallow interpolation into SQL strings passed to Node’s `node:sqlite` APIs.                                                   | ✅ ☑️ |    |    |    |
 | [no-unsafe-string-replacement](docs/rules/no-unsafe-string-replacement.md)                                 | Disallow non-literal replacement values in `String#replace()` and `String#replaceAll()`.                                       | ✅    |    |    |    |
 | [no-unused-array-method-return](docs/rules/no-unused-array-method-return.md)                               | Disallow ignoring the return value of selected array methods.                                                                  | ✅ ☑️ |    |    |    |
 | [no-unused-properties](docs/rules/no-unused-properties.md)                                                 | Disallow unused object properties.                                                                                             |      |    |    |    |
@@ -425,6 +427,7 @@ export default defineConfig([
 | [require-passive-events](docs/rules/require-passive-events.md)                                             | Require passive event listeners for high-frequency events.                                                                     | ✅ ☑️ | 🔧 |    |    |
 | [require-post-message-target-origin](docs/rules/require-post-message-target-origin.md)                     | Enforce using the `targetOrigin` argument with `window.postMessage()`.                                                         |      |    | 💡 |    |
 | [require-proxy-trap-boolean-return](docs/rules/require-proxy-trap-boolean-return.md)                       | Require boolean-returning Proxy traps to return booleans.                                                                      | ✅ ☑️ | 🔧 |    |    |
+| [single-line-block-comment-style](docs/rules/single-line-block-comment-style.md)                           | Enforce a consistent style for single-line block comments.                                                                     | ✅    | 🔧 |    |    |
 | [string-content](docs/rules/string-content.md)                                                             | Enforce better string content.                                                                                                 |      | 🔧 | 💡 |    |
 | [switch-case-braces](docs/rules/switch-case-braces.md)                                                     | Enforce consistent brace style for `case` clauses.                                                                             | ✅    | 🔧 |    |    |
 | [switch-case-break-position](docs/rules/switch-case-break-position.md)                                     | Enforce consistent `break`/`return`/`continue`/`throw` position in `case` clauses.                                             | ✅    | 🔧 |    |    |

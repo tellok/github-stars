@@ -1,6 +1,6 @@
 ---
 project: ioredis
-stars: 15317
+stars: 15316
 description: |-
     🚀 A robust, performance-focused, and full-featured Redis client for Node.js.
 url: https://github.com/redis/ioredis
@@ -161,7 +161,8 @@ new Redis({
 });
 ```
 
-You can also specify connection options as a [`redis://` URL](http://www.iana.org/assignments/uri-schemes/prov/redis) or [`rediss://` URL](https://www.iana.org/assignments/uri-schemes/prov/rediss) when using [TLS encryption](#tls-options):
+You can also pass a connection string as the first constructor argument.
+Use a [`redis://` URL](http://www.iana.org/assignments/uri-schemes/prov/redis) or [`rediss://` URL](https://www.iana.org/assignments/uri-schemes/prov/rediss) when using [TLS encryption](#tls-options):
 
 ```javascript
 // Connect to 127.0.0.1:6380, db 4, using password "authpassword":
@@ -319,6 +320,70 @@ with the `GET` parameter:
 const result = await redis.setBuffer("foo", "new value", "GET");
 // result is `<Buffer 62 75 66>` as `GET` indicates returning the old value.
 ```
+
+## Managed HIMPORT Fieldsets (experimental)
+
+> [!WARNING]
+> ioredis managed-fieldset support is experimental and may change in a future
+> release. When a managed `HIMPORT SET` needs fieldset preparation or recovery,
+> later commands may be sent before that SET resumes. Await the SET before
+> issuing commands that depend on its write.
+
+[`HIMPORT`](https://redis.io/docs/latest/commands/himport/) requires Redis 8.10
+or newer. It provides a faster ingestion mechanism for loading many hashes that
+share the same set of field names.
+
+Explicit pipelines containing a configured `HIMPORT SET` wait for required
+fieldset preparation on their selected connection before the batch is sent.
+Unconfigured fieldsets remain manually managed.
+
+```javascript
+const redis = new Redis({
+  himportFieldsets: [
+    {
+      name: "user-profile",
+      fields: ["name", "email", "age"],
+    },
+  ],
+});
+
+await redis.himport(
+  "SET",
+  "user:42",
+  "user-profile",
+  "Ada",
+  "ada@example.com",
+  "37"
+);
+```
+
+For Cluster clients, pass `himportFieldsets` at the top level of the Cluster
+options, not under `redisOptions`. ioredis prepares managed fieldsets on current
+and future master connections:
+
+```javascript
+const cluster = new Redis.Cluster(nodes, {
+  himportFieldsets: [
+    {
+      name: "user-profile",
+      fields: ["name", "email", "age"],
+    },
+  ],
+});
+```
+
+Direct `HIMPORT PREPARE`, `DISCARD`, and `DISCARDALL` calls on a Cluster client
+fan out to all current masters, wait for every reply, and reject if any master
+fails. Inside an explicit pipeline, these commands remain connection-affine and
+are not managed.
+
+Background preparation failures do not prevent a connection from becoming
+ready. Standalone and Sentinel clients report them through the `error` event;
+Cluster clients report them through `node error`. A dependent managed
+`HIMPORT SET` retries preparation and rejects if recovery fails.
+
+See [`examples/himport.js`](examples/himport.js) for managed fieldsets and
+manual batches.
 
 ## Pipelining
 
@@ -812,8 +877,9 @@ using the `retryStrategy` option:
 const redis = new Redis({
   // This is the default value of `retryStrategy`
   retryStrategy(times) {
-    const delay = Math.min(times * 50, 2000);
-    return delay;
+    const jitter = Math.floor(Math.random() * 200);
+    const delay = Math.min(Math.pow(2, times - 1) * 50, 5000);
+    return delay + jitter;
   },
 });
 ```
@@ -823,6 +889,8 @@ The argument `times` means this is the nth reconnection being made and
 the return value represents how long (in ms) to wait to reconnect. When the
 return value isn't a number, ioredis will stop trying to reconnect, and the connection
 will be lost forever if the user doesn't call `redis.connect()` manually.
+The default strategy uses exponential backoff capped at 5 seconds and adds up to
+199 milliseconds of random jitter to prevent clients from reconnecting simultaneously.
 
 When reconnected, the client will auto subscribe to channels that the previous connection subscribed to.
 This behavior can be disabled by setting the `autoResubscribe` option to `false`.
@@ -961,7 +1029,8 @@ const redis = new Redis({
 });
 ```
 
-Alternatively, specify the connection through a [`rediss://` URL](https://www.iana.org/assignments/uri-schemes/prov/rediss).
+Alternatively, pass a [`rediss://` URL](https://www.iana.org/assignments/uri-schemes/prov/rediss) directly to the constructor.
+The `host` field in `RedisOptions` should contain only the hostname; a `rediss://` URL in `host` is not parsed as a TLS URL.
 
 ```javascript
 const redis = new Redis("rediss://redis.my-service.com");

@@ -1,6 +1,6 @@
 ---
 project: webpack
-stars: 65865
+stars: 65867
 description: |-
     A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand. Through "loaders", modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON, Coffeescript, LESS, ... and your custom stuff.
 url: https://github.com/webpack/webpack
@@ -636,6 +636,10 @@ Before we started using OpenCollective, donations were made anonymously. Now tha
 <a href="https://opencollective.com/webpack/backer/98/website?requireActive=false" target="_blank"><img width="30" src="https://opencollective.com/webpack/backer/98/avatar.svg?requireActive=false"></a>
 <a href="https://opencollective.com/webpack/backer/99/website?requireActive=false" target="_blank"><img width="30" src="https://opencollective.com/webpack/backer/99/avatar.svg?requireActive=false"></a>
 <a href="https://opencollective.com/webpack/backer/100/website?requireActive=false" target="_blank"><img width="30" src="https://opencollective.com/webpack/backer/100/avatar.svg?requireActive=false"></a>
+
+## Other Partners
+
+- [CodSpeed](https://codspeed.io/?utm_source=webpack&utm_medium=readme) for generously supporting us with benchmarks on their paid runners.
 
 ## Special Thanks to
 

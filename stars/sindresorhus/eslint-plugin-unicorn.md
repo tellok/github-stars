@@ -1,6 +1,6 @@
 ---
 project: eslint-plugin-unicorn
-stars: 5211
+stars: 5218
 description: |-
     More than 300 powerful ESLint rules
 url: https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -103,6 +103,7 @@ export default defineConfig([
 | [catch-error-name](docs/rules/catch-error-name.md)                                                         | Enforce a specific parameter name in catch clauses.                                                                            | ✅    | 🔧 |    |    |
 | [class-reference-in-static-methods](docs/rules/class-reference-in-static-methods.md)                       | Enforce consistent class references in static methods.                                                                         | ✅    |    | 💡 |    |
 | [comment-content](docs/rules/comment-content.md)                                                           | Enforce better comment content.                                                                                                |      | 🔧 |    |    |
+| [consistent-arrow-return-style](docs/rules/consistent-arrow-return-style.md)                               | Enforce a consistent return style for multiline arrow function bodies.                                                         |      | 🔧 |    |    |
 | [consistent-assert](docs/rules/consistent-assert.md)                                                       | Enforce consistent assertion style with `node:assert`.                                                                         | ✅    | 🔧 |    |    |
 | [consistent-boolean-name](docs/rules/consistent-boolean-name.md)                                           | Enforce consistent naming for boolean names.                                                                                   | ✅    | 🔧 | 💡 |    |
 | [consistent-class-member-order](docs/rules/consistent-class-member-order.md)                               | Enforce consistent class member order.                                                                                         | ✅    |    | 💡 |    |
@@ -132,6 +133,7 @@ export default defineConfig([
 | [id-match](docs/rules/id-match.md)                                                                         | Require identifiers to match a specified regular expression.                                                                   |      |    |    |    |
 | [import-style](docs/rules/import-style.md)                                                                 | Enforce specific import styles per module.                                                                                     | ✅ ☑️ |    |    |    |
 | [isolated-functions](docs/rules/isolated-functions.md)                                                     | Prevent usage of variables from outside the scope of isolated functions.                                                       | ✅    |    |    |    |
+| [iteration-fallback-style](docs/rules/iteration-fallback-style.md)                                         | Enforce a consistent style for optional loop sources.                                                                          |      | 🔧 |    |    |
 | [logical-assignment-operators](docs/rules/logical-assignment-operators.md)                                 | Require or disallow logical assignment operator shorthand                                                                      | ✅    | 🔧 | 💡 |    |
 | [max-nested-calls](docs/rules/max-nested-calls.md)                                                         | Limit the depth of nested calls.                                                                                               | ✅    |    |    |    |
 | [name-replacements](docs/rules/name-replacements.md)                                                       | Enforce replacements for variable, property, and filenames.                                                                    | ✅    | 🔧 | 💡 |    |

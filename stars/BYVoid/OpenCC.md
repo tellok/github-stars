@@ -1,6 +1,6 @@
 ---
 project: OpenCC
-stars: 9866
+stars: 9889
 description: |-
     Library for conversion between Traditional and Simplified Chinese
 url: https://github.com/BYVoid/OpenCC
@@ -290,7 +290,7 @@ The following ports are maintained within the OpenCC ecosystem and are generally
 
 * Data package: [opencc-data](https://www.npmjs.com/package/opencc-data)
 * Pure JavaScript: [opencc-js](https://www.npmjs.com/package/opencc-js)
-    * See [notes about different OpenCC NPM packages](#links-%E7%9B%B8%E9%97%9C%E9%8F%88%E6%8E%A5) below.
+    * See [notes about different OpenCC NPM packages](#links-%E7%9B%B8%E9%97%9C%E9%80%A3%E7%B5%90) below.
 * WebAssembly: [opencc-wasm](https://www.npmjs.com/package/opencc-wasm) ([website](https://opencc.js.org/))
 * Pure Python: [opencc-py](https://pypi.org/project/opencc-py/) (pre-release)
 

@@ -1,6 +1,6 @@
 ---
 project: ratchet
-stars: 14682
+stars: 14683
 description: |-
     Build mobile apps with simple HTML, CSS, and JavaScript components. 
 url: https://github.com/twbs/ratchet

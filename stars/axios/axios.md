@@ -1,6 +1,6 @@
 ---
 project: axios
-stars: 109235
+stars: 109216
 description: |-
     Promise based HTTP client for the browser and node.js
 url: https://github.com/axios/axios
@@ -382,6 +382,48 @@ url: https://github.com/axios/axios
                     ><b>kasyno.us.com</b></a
                 >
             </p>
+        </td>
+    </tr>
+    <tr width="33.333333333333336%">
+        <td align="center" width="33.333333333333336%">
+            <a
+                href="https://www.scrapingbee.com/?utm_source=axios_docs_website&utm_medium=website&utm_campaign=axios_open_collective_sponsorship"
+                style="padding: 10px; display: inline-block"
+                target="_blank"
+            >
+                <img
+                    width="90px"
+                    height="90px"
+                    src="https://images.opencollective.com/scrapingbee/6d5dc95/logo.png"
+                    alt="ScrapingBee"
+                />
+            </a>
+            <p
+                align="center"
+            >
+                Scrape websites with a powerful web scraping API without managing proxies, browsers, or anti-bot defenses.
+            </p>
+            <p align="center">
+                <a
+                    href="https://www.scrapingbee.com/?utm_source=axios_docs_website&utm_medium=website&utm_campaign=axios_open_collective_sponsorship"
+                    target="_blank"
+                    ><b>scrapingbee.com</b></a
+                >
+            </p>
+        </td>
+        <td align="center" width="33.333333333333336%">
+            <a
+                href="https://opencollective.com/axios/contribute"
+                target="_blank"
+                >💜 Become a sponsor</a
+            >
+        </td>
+        <td align="center" width="33.333333333333336%">
+            <a
+                href="https://opencollective.com/axios/contribute"
+                target="_blank"
+                >💜 Become a sponsor</a
+            >
         </td>
     </tr>
 </table>

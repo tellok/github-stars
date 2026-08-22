@@ -1,6 +1,6 @@
 ---
 project: webpack
-stars: 65979
+stars: 65973
 description: |-
     A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand. Through "loaders", modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON, Coffeescript, LESS, ... and your custom stuff.
 url: https://github.com/webpack/webpack
@@ -289,6 +289,8 @@ Contributions go far beyond pull requests and commits. Although we love giving y
 - [The Contributor's Guide to webpack](https://medium.com/webpack/contributors-guide/home)
 
 To get started have a look at our [documentation on contributing](https://github.com/webpack/webpack/blob/main/CONTRIBUTING.md).
+
+For when your change reaches npm, see [RELEASE_SCHEDULE.md](./RELEASE_SCHEDULE.md) — patch releases go out as soon as possible, minor releases every 4 weeks on Thursday.
 
 ### Creating your own plugins and loaders
 

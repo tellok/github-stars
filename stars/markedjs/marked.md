@@ -1,6 +1,6 @@
 ---
 project: marked
-stars: 37080
+stars: 37100
 description: |-
     A markdown parser and compiler. Built for speed.
 url: https://github.com/markedjs/marked
@@ -21,6 +21,7 @@ url: https://github.com/markedjs/marked
 - ⚡ built for speed
 - ⬇️ low-level compiler for parsing markdown without caching or blocking for long periods of time
 - ⚖️ light-weight while implementing all markdown features from the supported flavors & specifications
+- 🛠️ easily adaptable with [custom extensions](https://marked.js.org/using_advanced#extensions)
 - 🌐 works in a browser, on a server, or from a command line interface (CLI)
 
 ## Demo

@@ -1,6 +1,6 @@
 ---
 project: webpack
-stars: 65964
+stars: 65963
 description: |-
     A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand. Through "loaders", modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON, Coffeescript, LESS, ... and your custom stuff.
 url: https://github.com/webpack/webpack
@@ -309,8 +309,6 @@ For information about the governance of the webpack project, see [GOVERNANCE.md]
   **Aviv Keller** <<me@aviv.sh>> (he/him)
 - [evenstensberg](https://github.com/evenstensberg) -
   **Even Stensberg** <<evenstensberg@gmail.com>> (he/him)
-- [ovflowd](https://github.com/ovflowd) -
-  **Claudio Wunder** <<cwunder@gnome.org>> (he/they)
 - [thelarkinn](https://github.com/thelarkinn) -
   **Sean Larkin** <<selarkin@microsoft.com>> (he/him)
 

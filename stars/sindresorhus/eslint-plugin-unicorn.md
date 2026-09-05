@@ -1,6 +1,6 @@
 ---
 project: eslint-plugin-unicorn
-stars: 5232
+stars: 5235
 description: |-
     More than 300 powerful ESLint rules
 url: https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -170,8 +170,11 @@ export default defineConfig([
 | [no-console-spaces](docs/rules/no-console-spaces.md)                                                       | Do not use leading/trailing space between `console.log` parameters.                                                            | ✅ ☑️ | 🔧 |    |    |
 | [no-constant-zero-expression](docs/rules/no-constant-zero-expression.md)                                   | Disallow arithmetic and bitwise operations that always evaluate to `0`.                                                        | ✅ ☑️ |    | 💡 |    |
 | [no-declarations-before-early-exit](docs/rules/no-declarations-before-early-exit.md)                       | Disallow declarations before conditional early exits when they are only used after the exit.                                   | ✅ ☑️ | 🔧 |    |    |
+| [no-deprecated-css-features](docs/rules/no-deprecated-css-features.md)                                     | Disallow deprecated CSS features.                                                                                              |      | 🔧 | 💡 |    |
 | [no-document-cookie](docs/rules/no-document-cookie.md)                                                     | Do not use `document.cookie` directly.                                                                                         | ✅ ☑️ |    |    |    |
 | [no-double-comparison](docs/rules/no-double-comparison.md)                                                 | Disallow two comparisons of the same operands that can be combined into one.                                                   | ✅ ☑️ |    | 💡 |    |
+| [no-duplicate-css-selectors](docs/rules/no-duplicate-css-selectors.md)                                     | Disallow duplicate CSS selectors.                                                                                              |      | 🔧 |    |    |
+| [no-duplicate-font-family-names](docs/rules/no-duplicate-font-family-names.md)                             | Disallow duplicate font family names.                                                                                          |      | 🔧 |    |    |
 | [no-duplicate-if-branches](docs/rules/no-duplicate-if-branches.md)                                         | Disallow duplicate adjacent branches in if chains.                                                                             | ✅    |    |    |    |
 | [no-duplicate-logical-operands](docs/rules/no-duplicate-logical-operands.md)                               | Disallow adjacent duplicate operands in logical expressions.                                                                   | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-duplicate-loops](docs/rules/no-duplicate-loops.md)                                                     | Disallow `.map()` and `.filter()` in `for…of` and `for await…of` loop headers.                                                 | ✅    |    |    |    |
@@ -191,6 +194,7 @@ export default defineConfig([
 | [no-invalid-character-comparison](docs/rules/no-invalid-character-comparison.md)                           | Disallow comparing a single character from a string to a multi-character string.                                               | ✅ ☑️ |    |    |    |
 | [no-invalid-fetch-options](docs/rules/no-invalid-fetch-options.md)                                         | Disallow invalid options in `fetch()` and `new Request()`.                                                                     | ✅ ☑️ |    |    |    |
 | [no-invalid-file-input-accept](docs/rules/no-invalid-file-input-accept.md)                                 | Disallow invalid `accept` values on file inputs.                                                                               |      | 🔧 |    |    |
+| [no-invalid-media-features](docs/rules/no-invalid-media-features.md)                                       | Disallow unknown media features and invalid values for known media features.                                                   |      |    |    |    |
 | [no-invalid-remove-event-listener](docs/rules/no-invalid-remove-event-listener.md)                         | Prevent calling `EventTarget#removeEventListener()` with the result of an expression.                                          | ✅ ☑️ |    |    |    |
 | [no-invalid-well-known-symbol-methods](docs/rules/no-invalid-well-known-symbol-methods.md)                 | Disallow invalid implementations of well-known symbol methods.                                                                 | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-keyword-prefix](docs/rules/no-keyword-prefix.md)                                                       | Disallow identifiers starting with `new` or `class`.                                                                           |      |    |    |    |
@@ -210,6 +214,7 @@ export default defineConfig([
 | [no-negated-condition](docs/rules/no-negated-condition.md)                                                 | Disallow negated conditions.                                                                                                   | ✅ ☑️ | 🔧 |    |    |
 | [no-negation-in-equality-check](docs/rules/no-negation-in-equality-check.md)                               | Disallow negated expression in equality check.                                                                                 | ✅ ☑️ |    | 💡 |    |
 | [no-nested-ternary](docs/rules/no-nested-ternary.md)                                                       | Disallow nested ternary expressions.                                                                                           | ✅    | 🔧 |    |    |
+| [no-nesting-with-mixed-specificity](docs/rules/no-nesting-with-mixed-specificity.md)                       | Disallow nesting under selector lists with mixed specificity.                                                                  |      |    |    |    |
 | [no-new-array](docs/rules/no-new-array.md)                                                                 | Disallow `new Array()`.                                                                                                        | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-new-buffer](docs/rules/no-new-buffer.md)                                                               | Enforce the use of `Buffer.from()` and `Buffer.alloc()` instead of the deprecated `new Buffer()`.                              | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-non-function-verb-prefix](docs/rules/no-non-function-verb-prefix.md)                                   | Disallow non-function values with function-style verb prefixes.                                                                | ✅    |    |    | 💭 |
@@ -220,6 +225,7 @@ export default defineConfig([
 | [no-optional-chaining-on-undeclared-variable](docs/rules/no-optional-chaining-on-undeclared-variable.md)   | Disallow optional chaining on undeclared variables.                                                                            | ✅    |    |    |    |
 | [no-process-exit](docs/rules/no-process-exit.md)                                                           | Disallow `process.exit()`.                                                                                                     | ✅ ☑️ |    |    |    |
 | [no-redundant-comparison](docs/rules/no-redundant-comparison.md)                                           | Disallow comparisons made redundant by an equality check in the same logical AND.                                              | ✅ ☑️ | 🔧 | 💡 |    |
+| [no-redundant-nested-style-rules](docs/rules/no-redundant-nested-style-rules.md)                           | Disallow nested style rules that do not modify the parent selector.                                                            |      | 🔧 |    |    |
 | [no-return-array-push](docs/rules/no-return-array-push.md)                                                 | Disallow using the return value of `Array#push()` and `Array#unshift()`.                                                       | ✅    |    | 💡 |    |
 | [no-selector-as-dom-name](docs/rules/no-selector-as-dom-name.md)                                           | Disallow selector syntax in DOM names.                                                                                         | ✅    | 🔧 |    |    |
 | [no-shorthand-property-overrides](docs/rules/no-shorthand-property-overrides.md)                           | Disallow shorthand properties that override related longhand properties.                                                       | ✅ ☑️ |    |    |    |
@@ -235,6 +241,8 @@ export default defineConfig([
 | [no-typeof-undefined](docs/rules/no-typeof-undefined.md)                                                   | Disallow comparing `undefined` using `typeof`.                                                                                 | ✅ ☑️ | 🔧 | 💡 |    |
 | [no-uncalled-method](docs/rules/no-uncalled-method.md)                                                     | Disallow referencing methods without calling them.                                                                             | ✅    |    |    |    |
 | [no-undeclared-class-members](docs/rules/no-undeclared-class-members.md)                                   | Require class members to be declared.                                                                                          | ✅    |    | 💡 |    |
+| [no-unknown-css-annotations](docs/rules/no-unknown-css-annotations.md)                                     | Disallow unknown and noncanonical CSS annotations.                                                                             |      |    | 💡 |    |
+| [no-unknown-pseudo-selectors](docs/rules/no-unknown-pseudo-selectors.md)                                   | Disallow unknown pseudo-class and pseudo-element selectors.                                                                    |      |    |    |    |
 | [no-unnecessary-array-flat-depth](docs/rules/no-unnecessary-array-flat-depth.md)                           | Disallow using `1` as the `depth` argument of `Array#flat()`.                                                                  | ✅ ☑️ | 🔧 |    |    |
 | [no-unnecessary-array-flat-map](docs/rules/no-unnecessary-array-flat-map.md)                               | Disallow `Array#flatMap()` callbacks that only wrap a single item.                                                             | ✅    | 🔧 | 💡 |    |
 | [no-unnecessary-array-splice-count](docs/rules/no-unnecessary-array-splice-count.md)                       | Disallow using `.length` or `Infinity` as the `deleteCount` or `skipCount` argument of `Array#{splice,toSpliced}()`.           | ✅ ☑️ | 🔧 |    |    |
@@ -258,6 +266,7 @@ export default defineConfig([
 | [no-unsafe-property-key](docs/rules/no-unsafe-property-key.md)                                             | Disallow unsafe values as property keys.                                                                                       | ✅    |    |    |    |
 | [no-unsafe-sqlite-interpolation](docs/rules/no-unsafe-sqlite-interpolation.md)                             | Disallow interpolation into SQL strings passed to Node’s `node:sqlite` APIs.                                                   | ✅ ☑️ |    |    |    |
 | [no-unsafe-string-replacement](docs/rules/no-unsafe-string-replacement.md)                                 | Disallow non-literal replacement values in `String#replace()` and `String#replaceAll()`.                                       | ✅    |    |    |    |
+| [no-unscoped-css-nesting-selector](docs/rules/no-unscoped-css-nesting-selector.md)                         | Disallow unscoped CSS nesting selectors.                                                                                       |      |    |    |    |
 | [no-unused-array-method-return](docs/rules/no-unused-array-method-return.md)                               | Disallow ignoring the return value of selected array methods.                                                                  | ✅ ☑️ |    |    |    |
 | [no-unused-properties](docs/rules/no-unused-properties.md)                                                 | Disallow unused object properties.                                                                                             |      |    |    |    |
 | [no-useless-boolean-cast](docs/rules/no-useless-boolean-cast.md)                                           | Disallow unnecessary `Boolean()` casts in array predicate callbacks.                                                           | ✅ ☑️ | 🔧 |    |    |
@@ -319,7 +328,7 @@ export default defineConfig([
 | [prefer-dom-node-append](docs/rules/prefer-dom-node-append.md)                                             | Prefer `Element#append()` over `Node#appendChild()`.                                                                           | ✅ ☑️ | 🔧 |    |    |
 | [prefer-dom-node-html-methods](docs/rules/prefer-dom-node-html-methods.md)                                 | Prefer `.getHTML()` and `.setHTML()` over `.innerHTML`.                                                                        | ✅    | 🔧 | 💡 |    |
 | [prefer-dom-node-remove](docs/rules/prefer-dom-node-remove.md)                                             | Prefer `childNode.remove()` over `parentNode.removeChild(childNode)`.                                                          | ✅ ☑️ | 🔧 | 💡 |    |
-| [prefer-dom-node-replace-children](docs/rules/prefer-dom-node-replace-children.md)                         | Prefer `.replaceChildren()` when emptying DOM children.                                                                        | ✅ ☑️ | 🔧 |    |    |
+| [prefer-dom-node-replace-children](docs/rules/prefer-dom-node-replace-children.md)                         | Prefer `.replaceChildren()` when replacing DOM children.                                                                       | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-dom-node-text-content](docs/rules/prefer-dom-node-text-content.md)                                 | Prefer `.textContent` over `.innerText`.                                                                                       | ✅ ☑️ |    | 💡 |    |
 | [prefer-early-return](docs/rules/prefer-early-return.md)                                                   | Prefer early returns over full-function conditional wrapping.                                                                  | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-else-if](docs/rules/prefer-else-if.md)                                                             | Prefer `else if` over adjacent `if` statements with related conditions.                                                        | ✅    | 🔧 | 💡 |    |
@@ -352,6 +361,7 @@ export default defineConfig([
 | [prefer-math-constants](docs/rules/prefer-math-constants.md)                                               | Prefer `Math` constants over their approximate numeric values.                                                                 | ✅ ☑️ |    | 💡 |    |
 | [prefer-math-min-max](docs/rules/prefer-math-min-max.md)                                                   | Prefer `Math.min()` and `Math.max()` over ternaries for simple comparisons.                                                    | ✅ ☑️ | 🔧 |    |    |
 | [prefer-math-trunc](docs/rules/prefer-math-trunc.md)                                                       | Prefer `Math.trunc()` for truncating numbers.                                                                                  | ✅ ☑️ | 🔧 | 💡 |    |
+| [prefer-media-feature-range-syntax](docs/rules/prefer-media-feature-range-syntax.md)                       | Prefer modern media feature range syntax.                                                                                      |      | 🔧 | 💡 |    |
 | [prefer-minimal-ternary](docs/rules/prefer-minimal-ternary.md)                                             | Prefer moving ternaries into the minimal varying part of an expression.                                                        | ✅ ☑️ |    |    |    |
 | [prefer-modern-dom-apis](docs/rules/prefer-modern-dom-apis.md)                                             | Prefer modern DOM APIs.                                                                                                        | ✅ ☑️ | 🔧 |    |    |
 | [prefer-modern-math-apis](docs/rules/prefer-modern-math-apis.md)                                           | Prefer modern `Math` APIs over legacy patterns.                                                                                | ✅ ☑️ | 🔧 |    |    |
@@ -486,8 +496,10 @@ export default defineConfig([
 		},
 		language: 'css/css',
 		rules: {
+			'unicorn/no-unscoped-css-nesting-selector': 'error',
 			'unicorn/prefer-explicit-viewport-units': 'error',
 			'unicorn/prefer-https': 'error',
+			'unicorn/prefer-media-feature-range-syntax': 'error',
 			'unicorn/text-encoding-identifier-case': 'error',
 		},
 	},
@@ -533,13 +545,23 @@ These rules also work on specific non-JavaScript languages:
 | Name | CSS | HTML | JSON | Markdown | YAML |
 | :-- | :-: | :-: | :-: | :-: | :-: |
 | [`expiring-todo-comments`](docs/rules/expiring-todo-comments.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [`no-deprecated-css-features`](docs/rules/no-deprecated-css-features.md) | ✅ |  |  |  |  |
+| [`no-duplicate-css-selectors`](docs/rules/no-duplicate-css-selectors.md) | ✅ |  |  |  |  |
+| [`no-duplicate-font-family-names`](docs/rules/no-duplicate-font-family-names.md) | ✅ |  |  |  |  |
 | [`no-empty-file`](docs/rules/no-empty-file.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [`no-invalid-file-input-accept`](docs/rules/no-invalid-file-input-accept.md) |  | ✅ |  |  |  |
+| [`no-invalid-media-features`](docs/rules/no-invalid-media-features.md) | ✅ |  |  |  |  |
 | [`no-manually-wrapped-comments`](docs/rules/no-manually-wrapped-comments.md) |  |  | ✅ |  |  |
 | [`no-missing-local-resource`](docs/rules/no-missing-local-resource.md) | ✅ | ✅ |  | ✅ |  |
+| [`no-nesting-with-mixed-specificity`](docs/rules/no-nesting-with-mixed-specificity.md) | ✅ |  |  |  |  |
+| [`no-redundant-nested-style-rules`](docs/rules/no-redundant-nested-style-rules.md) | ✅ |  |  |  |  |
 | [`no-shorthand-property-overrides`](docs/rules/no-shorthand-property-overrides.md) | ✅ |  |  |  |  |
 | [`no-transition-all`](docs/rules/no-transition-all.md) | ✅ |  |  |  |  |
+| [`no-unknown-css-annotations`](docs/rules/no-unknown-css-annotations.md) | ✅ |  |  |  |  |
+| [`no-unknown-pseudo-selectors`](docs/rules/no-unknown-pseudo-selectors.md) | ✅ |  |  |  |  |
+| [`no-unscoped-css-nesting-selector`](docs/rules/no-unscoped-css-nesting-selector.md) | ✅ |  |  |  |  |
 | [`prefer-explicit-viewport-units`](docs/rules/prefer-explicit-viewport-units.md) | ✅ |  |  |  |  |
+| [`prefer-media-feature-range-syntax`](docs/rules/prefer-media-feature-range-syntax.md) | ✅ |  |  |  |  |
 | [`require-frontmatter-fields`](docs/rules/require-frontmatter-fields.md) |  |  |  | ✅ |  |
 | [`text-encoding-identifier-case`](docs/rules/text-encoding-identifier-case.md) | ✅ | ✅ |  |  |  |
 
@@ -553,7 +575,7 @@ See [the list](docs/deleted-and-deprecated-rules.md).
 
 See the [ESLint docs](https://eslint.org/docs/latest/use/configure/configuration-files) for more information about extending config files.
 
-**Note**: Preset configs will also enable the correct [language options](https://eslint.org/docs/latest/use/configure/language-options).
+**Note**: The JavaScript preset configs also enable the correct [language options](https://eslint.org/docs/latest/use/configure/language-options).
 
 ### Recommended config
 

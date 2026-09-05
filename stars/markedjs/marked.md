@@ -1,6 +1,6 @@
 ---
 project: marked
-stars: 37100
+stars: 37121
 description: |-
     A markdown parser and compiler. Built for speed.
 url: https://github.com/markedjs/marked
@@ -17,6 +17,7 @@ url: https://github.com/markedjs/marked
 [![downloads](https://badgen.net/npm/dt/marked)](https://www.npmjs.com/package/marked)
 [![github actions](https://github.com/markedjs/marked/workflows/Tests/badge.svg)](https://github.com/markedjs/marked/actions)
 [![snyk](https://snyk.io/test/npm/marked/badge.svg)](https://snyk.io/test/npm/marked)
+[![inspect.software](https://raw.githubusercontent.com/inspect-software/badges/main/v1/m/markedjs/marked.svg)](https://inspect.software/software/markedjs/marked)
 
 - ⚡ built for speed
 - ⬇️ low-level compiler for parsing markdown without caching or blocking for long periods of time

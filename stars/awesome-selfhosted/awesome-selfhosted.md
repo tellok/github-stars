@@ -1,6 +1,6 @@
 ---
 project: awesome-selfhosted
-stars: 315991
+stars: 317352
 description: |-
     A list of Free Software network services and web applications which can be hosted on your own servers
 url: https://github.com/awesome-selfhosted/awesome-selfhosted
@@ -167,7 +167,6 @@ _Related: [Database Management](#database-management), [Personal Dashboards](#pe
 - [Superset](http://superset.apache.org/) - Modern data exploration and visualization platform. ([Source Code](https://github.com/apache/superset)) `Apache-2.0` `Python`
 - [Swetrix](https://swetrix.com/) - Ultimate, open-source web analytics to satisfy all your needs. ([Demo](https://swetrix.com/projects/STEzHcB1rALV), [Source Code](https://github.com/Swetrix/selfhosting)) `AGPL-3.0` `Docker`
 - [Umami](https://umami.is/) - Simple, fast, privacy-focused alternative to Google Analytics. ([Demo](https://cloud.umami.is/share/LGazGOecbDtaIwDr), [Source Code](https://github.com/umami-software/umami)) `MIT` `Nodejs/Docker`
-- [Vince](https://www.vinceanalytics.com/) - Web analytics and dashboard (alternative to Google Analytics). ([Source Code](https://github.com/vinceanalytics/vince)) `AGPL-3.0` `Go/Docker/K8S/deb`
 
 
 ### Archiving and Digital Preservation (DP)
@@ -215,7 +214,6 @@ _Related: [Internet of Things (IoT)](#internet-of-things-iot), [Software Develop
 - [Dagu](https://docs.dagu.cloud/) - Powerful Cron alternative with a Web UI. It allows you to define dependencies between commands as a Directed Acyclic Graph (DAG) in a declarative YAML format. ([Source Code](https://github.com/dagucloud/dagu)) `GPL-3.0` `Go/Docker`
 - [Discount Bandit](https://discount-bandit.cybrarist.com/) `⚠` - Track pricing, stock status of products across multiple stores such as Amazon, Ebay, Walmart, etc. ([Source Code](https://github.com/Cybrarist/Discount-Bandit)) `GPL-3.0` `PHP/Docker`
 - [Dittofeed](https://www.dittofeed.com) - Omni-channel customer engagement and messaging automation platform (alternative to Braze, Customer.io, Iterable). ([Demo](https://demo.dittofeed.com/dashboard/journeys), [Source Code](https://github.com/dittofeed/dittofeed)) `MIT` `Docker`
-- [feedmixer](https://github.com/cristoper/feedmixer) - Micro web service which takes a list of feed URLs and returns a new feed consisting of the most recent n entries from each given feed (returns Atom, RSS, or JSON). ([Demo](https://mretc.net/feedmixer/json?f=https://hnrss.org/newest&f=https://americancynic.net/atom.xml&n=1)) `WTFPL` `Python`
 - [flowctl](https://flowctl.net) - Self-service workflow execution platform with approvals, remote execution and scheduling. ([Demo](https://demo.flowctl.net), [Source Code](https://github.com/cvhariharan/flowctl)) `Apache-2.0` `Go/Docker`
 - [Fredy](https://fredy.orange-coding.net/) `⚠` - Searches for new apartments, houses, and flats in Germany on platforms like ImmoScout24, Immowelt, and others, and instantly delivers the results to you via Slack, Telegram, and more. ([Demo](https://fredy-demo.orange-coding.net), [Source Code](https://github.com/orangecoding/fredy)) `Apache-2.0` `Nodejs/Docker`
 - [gocron](https://github.com/flohoss/gocron) - Task scheduler that allows users to specify recurring jobs via a simple YAML configuration file. `MIT` `Docker`
@@ -693,7 +691,6 @@ _Related: [Communication - Email - Mailing Lists and Newsletters](#communication
 - [Django-CRM](https://DjangoCRM.github.io/info/) - Analytical CRM with tasks management, email marketing and many more. Django CRM is built for individual use, businesses of any size or freelancers and is designed to provide easy customization and quick development. ([Source Code](https://github.com/DjangoCRM/django-crm)) `AGPL-3.0` `Python`
 - [EspoCRM](https://www.espocrm.com/) - CRM with a frontend designed as a single page application, and a REST API. ([Demo](https://demo.espocrm.com/), [Source Code](https://github.com/espocrm/espocrm)) `AGPL-3.0` `PHP`
 - [Krayin](https://krayincrm.com/) - CRM solution for SMEs and Enterprises for complete customer lifecycle management. ([Demo](https://demo.krayincrm.com/), [Source Code](https://github.com/krayin/laravel-crm)) `MIT` `PHP`
-- [Monica](https://monicahq.com/) - Personal relationship manager, and a new kind of CRM to organize interactions with your friends and family. ([Source Code](https://github.com/monicahq/monica)) `AGPL-3.0` `PHP/Docker`
 - [SuiteCRM](https://suitecrm.com) - The award-winning, enterprise-class open source CRM. ([Source Code](https://github.com/SuiteCRM/SuiteCRM)) `AGPL-3.0` `PHP`
 - [Twenty](https://twenty.com) - A modern CRM offering the flexibility of open source, advanced features, and a sleek design. ([Source Code](https://github.com/twentyhq/twenty)) `AGPL-3.0` `Docker`
 
@@ -719,7 +716,7 @@ _See also: [dbdb.io - Database of Databases](https://dbdb.io/)_
 - [Databunker](https://databunker.org/) - Network-based, self-hosted, GDPR compliant, secure database for personal data or PII. ([Source Code](https://github.com/securitybunker/databunker)) `MIT` `Docker`
 - [Datasette](https://datasette.io/) - Explore and publish data with easy import and export and database management. ([Source Code](https://github.com/simonw/datasette)) `Apache-2.0` `Python/Docker`
 - [Evidence](https://evidence.dev) - Code-based BI tool. Write reports using SQL and markdown and they render as a website. ([Source Code](https://github.com/evidence-dev/evidence)) `MIT` `Nodejs`
-- [LibreDB Studio](https://libredb.org) - Browser-based SQL IDE for PostgreSQL, MySQL, Oracle, SQL Server, SQLite, MongoDB and Redis, with an optional AI assistant that writes SQL from natural language (alternative to DataGrip, DBeaver). ([Source Code](https://github.com/libredb/libredb-studio)) `MIT` `Docker/K8S`
+- [LibreDB Studio](https://libredb.org) - Browser-based SQL IDE for PostgreSQL, MySQL, Oracle, SQL Server, MongoDB, Redis, ClickHouse, DuckDB and more, with SSO, audit trail, ER diagrams and optional AI assistance on your own model key (alternative to DataGrip, DBeaver, CloudBeaver). ([Source Code](https://github.com/libredb/libredb-studio)) `MIT` `Docker/K8S`
 - [Limbas](https://www.limbas.com/en/) - Database framework for creating database-driven business applications. As a graphical database frontend, it enables the efficient processing of data stocks and the flexible development of comfortable database applications. ([Source Code](https://github.com/limbas/limbas)) `GPL-2.0` `PHP`
 - [Mathesar](https://mathesar.org/) - Intuitive UI to manage data collaboratively, for users of all technical skill levels. Built on Postgres – connect an existing DB or set up a new one. ([Source Code](https://github.com/mathesar-foundation/mathesar)) `GPL-3.0` `Docker/Python`
 - [OrcaQ](https://orca-q.com) - Modern database client and IDE for managing, querying, and exploring multiple database types with built-in AI assistant. ([Source Code](https://github.com/cin12211/orca-q)) `MIT` `Nodejs/deb/Docker`
@@ -1001,7 +998,6 @@ _Related: [Groupware](#groupware)_
 - [ClyoCloud](https://clyo.cloud/) - A personal, self-hosted cloud storage and media management application built for privacy, efficiency, and aesthetics. ([Source Code](https://code.weexnes.dev/ClyoCloud)) `AGPL-3.0` `Nodejs`
 - [copyparty](https://github.com/9001/copyparty) - Portable file server with accelerated resumable uploads, deduplication, WebDAV, FTP, zeroconf, media indexer, video thumbnails, audio transcoding, and write-only folders, in a single file with no mandatory dependencies. ([Demo](https://a.ocv.me/pub/demo/)) `MIT` `Python`
 - [Directory Lister](https://www.directorylister.com/) - Simple PHP based directory lister that lists a directory and all its sub-directories and allows you to navigate there within. ([Source Code](https://github.com/DirectoryLister/DirectoryLister)) `MIT` `PHP/Docker`
-- [filebrowser](https://filebrowser.org/) - Web File Browser with a Material Design web interface. ([Source Code](https://github.com/filebrowser/filebrowser)) `Apache-2.0` `Go`
 - [FileGator](https://filegator.io/) - FileGator is a powerful multi-user file manager with a single page front-end. ([Demo](https://demo.filegator.io), [Source Code](https://github.com/filegator/filegator)) `MIT` `PHP/Docker`
 - [FileRise](https://github.com/error311/FileRise) - Web file manager with uploads, tagging, share links, gallery/table views, and an in-browser editor. ([Demo](https://github.com/error311/FileRise?tab=readme-ov-file#live-demo)) `MIT` `Docker/PHP`
 - [Filestash](https://www.filestash.app/) - Web file manager that lets you manage your data anywhere it is located: FTP, SFTP, WebDAV, Git, S3, Minio, Dropbox, or Google Drive. ([Demo](https://demo.filestash.app/), [Source Code](https://github.com/mickael-kerjean/filestash)) `AGPL-3.0` `Docker`
@@ -1205,7 +1201,7 @@ _Related: [Money, Budgeting & Management](#money-budgeting--management), [Resour
 
 _See also: [awesome-sysadmin/IT Asset Management](https://github.com/awesome-foss/awesome-sysadmin#it-asset-management)_
 
-- [Cannery](https://cannery.app) - Firearm and ammunition tracker app. ([Source Code](https://codeberg.org/shibao/cannery)) `AGPL-3.0` `Docker`
+- [Cannery](https://cannery.app) - Firearm and ammunition tracker app. ([Source Code](https://gitlab.com/shibaobun/cannery)) `AGPL-3.0` `Docker`
 - [DVinyl](https://github.com/Kyonew/DVinyl) `⚠` - Modern collection manager for physical media (vinyls, CDs, cassettes, books, movies, and video games). `MIT` `Nodejs/Docker`
 - [HomeBox (SysAdminsMedia)](https://homebox.software/) - Inventory and organization system built for the home user. ([Demo](https://demo.homebox.software/), [Source Code](https://github.com/sysadminsmedia/homebox)) `AGPL-3.0` `Docker/Go`
 - [Inventaire](https://inventaire.io/welcome) - Collaborative resources mapper project, while yet only focused on exploring books mapping with wikidata and ISBNs. ([Source Code](https://codeberg.org/inventaire/inventaire)) `AGPL-3.0` `Nodejs`
@@ -1228,7 +1224,7 @@ _Related: [Note-taking & Editors](#note-taking--editors), [Wikis](#wikis), [Data
 - [Atomic Server](https://atomicserver.eu/) - Knowledge graph database with documents (similar to Notion), tables, search, and a powerful linked data API. Lightweight, very fast and no runtime dependencies. ([Demo](https://atomicdata.dev/), [Source Code](https://github.com/ontola/atomic-server)) `MIT` `Docker/Rust`
 - [Digimindmap](https://ladigitale.dev/digimindmap/#/) - Create simple mindmaps (documentation in French). ([Demo](https://ladigitale.dev/digimindmap/#/), [Source Code](https://codeberg.org/ladigitale/digimindmap)) `AGPL-3.0` `Nodejs/PHP`
 - [LibreKB](https://librekb.com/) - Web-based knowledge base solution. A simple web app, it runs on pretty much any web server or hosting provider with PHP and MySQL. ([Source Code](https://github.com/michaelstaake/LibreKB/)) `GPL-3.0` `PHP`
-- [memEx](https://codeberg.org/shibao/memEx) - Structured personal knowledge base, inspired by zettlekasten and org-mode. `AGPL-3.0` `Docker`
+- [memEx](https://gitlab.com/shibaobun/memex) - Structured personal knowledge base, inspired by zettlekasten and org-mode. `AGPL-3.0` `Docker`
 - [SiYuan](https://b3log.org/siyuan/) - A privacy-first personal knowledge management software, written in typescript and golang. ([Source Code](https://github.com/siyuan-note/siyuan)) `AGPL-3.0` `Docker/Go`
 - [TeamMapper](https://github.com/b310-digital/teammapper) - Host and create your own mindmaps. Share your mindmap sessions with your team and collaborate live on mindmaps. ([Demo](https://map.kits.blog)) `MIT` `Docker/Nodejs`
 
@@ -1310,6 +1306,8 @@ _Related: [Automation](#automation), [Media Streaming](#media-streaming), [Media
 - [ChannelTube](https://github.com/TheWicklowWolf/ChannelTube) `⚠` - Download video or audio from YouTube channels on a schedule via yt-dlp. `AGPL-3.0` `Docker`
 - [Deleterr](https://github.com/rfsbraz/deleterr) - Automated media cleanup tool that removes watched and stale content from Plex, Sonarr, and Radarr based on configurable rules. `MIT` `Docker`
 - [Downtify](https://downtify.henriquesebastiao.com) `⚠` - Download Spotify music with album art and metadata. ([Source Code](https://github.com/henriquesebastiao/downtify)) `GPL-3.0` `Docker`
+- [Elengrab](https://github.com/neosy/elengrab) - Fast cross-platform video and audio downloader and media viewer with flexible format and quality options. Supports 1000+ websites including YouTube, Instagram, TikTok, Twitch and more. ([Demo](https://elengrab.n-hub.ru)) `AGPL-3.0` `Go/Docker`
+- [Houndarr](https://av1155.github.io/houndarr/) - Scheduled backlog searches for Radarr, Sonarr, Lidarr, Readarr and Whisparr. Works through missing and cutoff-unmet items in small rate-limited batches with per-item cooldowns and hourly caps, to avoid overloading indexers. ([Source Code](https://github.com/av1155/houndarr)) `AGPL-3.0` `Python/Docker`
 - [Lidarr](https://lidarr.audio/) - Music collection manager for Usenet and BitTorrent users. ([Source Code](https://github.com/Lidarr/Lidarr)) `GPL-3.0` `C#/Docker`
 - [LidaTube](https://github.com/TheWicklowWolf/LidaTube) `⚠` - Finding and fetch missing Lidarr albums via yt-dlp. `GPL-3.0` `Docker`
 - [Lidify](https://github.com/TheWicklowWolf/Lidify) `⚠` - Music discovery tool that provides recommendations based on selected Lidarr artists, using Spotify or LastFM. `MIT` `Docker`
@@ -1622,7 +1620,7 @@ _Related: [Wikis](#wikis)_
 - [Memos](https://usememos.com/) - Knowledge base that works with a SQLite db file. ([Demo](https://demo.usememos.com/explore), [Source Code](https://github.com/usememos/memos)) `MIT` `Docker/Go`
 - [Note Mark](https://notemark.docs.enchantedcode.co.uk/) - Minimal web-based Markdown notes app. ([Source Code](https://github.com/enchant97/note-mark)) `AGPL-3.0` `Docker`
 - [Overleaf](https://www.overleaf.com/) - Web-based collaborative LaTeX editor. ([Source Code](https://github.com/overleaf/overleaf)) `AGPL-3.0` `Ruby`
-- [Plainpad](https://alextselegidis.com/get/plainpad/) - Modern note taking application for the cloud, utilizing the best features of progressive web apps technology. ([Demo](https://alextselegidis.com/try/plainpad/), [Source Code](https://github.com/alextselegidis/plainpad)) `GPL-3.0` `PHP`
+- [Plainpad](https://plainpad.org) - Modern note taking application for the cloud, utilizing the best features of progressive web apps technology. ([Demo](https://demo.plainpad.org), [Source Code](https://github.com/alextselegidis/plainpad)) `GPL-3.0` `PHP`
 - [plumio](https://plumio.app/) - Markdown notes taking app with live preview, document encryption, multi-user support, multi-organization capabilities and more. ([Demo](https://demo.plumio.app/homepage), [Source Code](https://github.com/albertasaftei/plumio)) `AGPL-3.0` `Nodejs/Docker`
 - [SilverBullet](https://silverbullet.md/) - Note-taking application optimized for people with a hacker mindset. ([Demo](https://play.silverbullet.md/), [Source Code](https://github.com/silverbulletmd/silverbullet), [Clients](https://silverbullet.md/Libraries)) `MIT` `Docker/Deno`
 - [Standard Notes](https://docs.standardnotes.com/self-hosting/getting-started) - Simple and private notes app. Protect your privacy while getting more done. That's Standard Notes. ([Demo](https://app.standardnotes.com/), [Source Code](https://github.com/standardnotes/app)) `GPL-3.0` `Ruby`
@@ -1788,7 +1786,6 @@ _Related: [Web Servers](#web-servers)_
 - [g3proxy](https://g3-project.readthedocs.io/projects/g3proxy/en/latest/) - Forward proxy server supporting proxy chaining, protocol inspection, MITM Interception, ICAP adaptation and transparent proxy. ([Source Code](https://github.com/bytedance/g3/tree/master/g3proxy)) `Apache-2.0` `Rust/deb`
 - [GitProxy](https://git-proxy.finos.org/) - Proxy for Git that applies rules and workflows to all outgoing git push operations and ensures they are compliant. It supports both HTTP/HTTPS and SSH protocols with security scanning and validation. ([Source Code](https://github.com/finos/git-proxy)) `Apache-2.0` `Nodejs/Docker`
 - [imgproxy](https://imgproxy.net/) - Fast and secure standalone server for resizing and converting remote images. ([Source Code](https://github.com/imgproxy/imgproxy)) `MIT` `Go/Docker/K8S`
-- [iodine](https://code.kryo.se/iodine/) - IPv4 over DNS tunnel solution, enabling you to start up a socks5 proxy listener. ([Source Code](https://github.com/yarrick/iodine)) `ISC` `C/deb`
 - [Outline Server](https://getoutline.org/) - A proxy server that runs a Shadowsocks instance for each access key and a REST API to manage the access keys. ([Source Code](https://github.com/OutlineFoundation/outline-server)) `Apache-2.0` `Docker/Nodejs`
 - [Privoxy](https://www.privoxy.org) - Non-caching web proxy with advanced filtering capabilities for enhancing privacy, modifying web page data and HTTP headers, controlling access, and removing ads and other obnoxious Internet junk. `GPL-2.0` `C/deb`
 - [sish](https://github.com/antoniomika/sish) - HTTP(S)/WS(S)/TCP tunnels to localhost using only SSH (serveo/ngrok alternative). `MIT` `Go/Docker`
@@ -1863,7 +1860,7 @@ A [search engine](https://en.wikipedia.org/wiki/Search_engine_(computing)) is an
 - [Hister](https://hister.org/) - Personal web search engine with automatic indexing of visited websites. Supports offline local result previews, local files, multi-user handling and optional semantic search. ([Demo](https://demo.hister.org/), [Source Code](https://github.com/asciimoo/hister)) `AGPL-3.0` `Go/Docker`
 - [Manticore Search](https://github.com/manticoresoftware/manticoresearch/) - Full-text search and data analytics, with fast response time for small, medium and big data (alternative to Elasticsearch). `GPL-3.0` `Docker/deb/C++/K8S`
 - [MeiliSearch](https://www.meilisearch.com) - Ultra relevant, instant and typo-tolerant full-text search API. ([Source Code](https://github.com/meilisearch/MeiliSearch)) `MIT` `Rust/Docker/deb`
-- [Meme Search](https://github.com/neonwatty/meme-search) - AI-powered meme search engine. Automatically extracts descriptions from images using vision-language models, then indexes with vector embeddings for semantic and keyword search. `Apache-2.0` `Docker`
+- [Meme Search](https://github.com/neonwatty/meme-search) - AI-powered meme search engine. Automatically extracts descriptions from images using vision-language models, then indexes with vector embeddings for semantic and keyword search. ([Source Code](https://github.com/meme-search/meme-search)) `Apache-2.0` `Docker`
 - [OpenSearch](https://opensearch.org) - Distributed and RESTful search engine. ([Source Code](https://github.com/opensearch-project/OpenSearch)) `Apache-2.0` `Java/Docker/K8S/deb`
 - [SearXNG](https://docs.searxng.org/) `⚠` - Internet metasearch engine which aggregates results from various search services and databases (Fork of Searx). ([Source Code](https://github.com/searxng/searxng/)) `AGPL-3.0` `Python/Docker`
 - [Sosse](https://sosse.readthedocs.io/en/stable/) - Selenium based search engine and crawler with offline archiving. ([Source Code](https://gitlab.com/biolds1/sosse)) `AGPL-3.0` `Python/Docker`
@@ -2268,10 +2265,8 @@ _See also: [Wikimatrix](https://www.wikimatrix.org/), [List of wiki software - W
 - [Dokuwiki](https://www.dokuwiki.org/DokuWiki) - Easy to use, lightweight, standards-compliant wiki engine with a simple syntax allowing reading the data outside the wiki. All data is stored in plain text files, therefore no database is required. ([Source Code](https://github.com/dokuwiki/dokuwiki)) `GPL-2.0` `PHP`
 - [Feather Wiki](https://feather.wiki) - A lightning fast and infinitely extensible tool for creating personal non-linear notebooks, databases, and wikis that is entirely self-contained, runs in your browser, and is only 58 kilobytes in size. ([Demo](https://feather.wiki/?page=gallery#wikis), [Source Code](https://codeberg.org/Alamantus/FeatherWiki), [Clients](https://feather.wiki/?page=gallery#extensions)) `AGPL-3.0` `Javascript`
 - [Gitit](https://github.com/jgm/gitit) - Wiki program that stores pages and uploaded files in a git repository, which can then be modified using the VCS command line tools or the wiki's web interface. `GPL-2.0` `Haskell`
-- [Gollum](https://github.com/gollum/gollum) - Simple, Git-powered wiki with a sweet API and local frontend. `MIT` `Ruby`
 - [LeafWiki](https://github.com/perber/leafwiki) - A fast wiki for people who think in folders, not feeds. Fast editing. Tree navigation. Markdown on disk. ([Demo](https://demo.leafwiki.com)) `MIT` `Docker/Go`
 - [Mediawiki](https://www.mediawiki.org/wiki/MediaWiki) - Wiki software package that powers Wikipedia and all other Wikimedia projects, serving hundreds of millions of users each month. ([Demo](https://en.wikipedia.org/wiki/Main_Page), [Source Code](https://phabricator.wikimedia.org/source/mediawiki/)) `GPL-2.0` `PHP`
-- [Mycorrhiza Wiki](https://mycorrhiza.wiki/) - Filesystem and git-based wiki engine written in Go using Mycomarkup as its primary markup language. ([Source Code](https://github.com/bouncepaw/mycorrhiza/)) `AGPL-3.0` `Go`
 - [Otter Wiki](https://otterwiki.com/) - Simple, easy to use wiki software using markdown. ([Source Code](https://github.com/redimp/otterwiki)) `MIT` `Docker`
 - [PmWiki](https://www.pmwiki.org) - Wiki-based system for collaborative creation and maintenance of websites. `GPL-3.0` `PHP`
 - [Raneto](https://raneto.com/) - Knowledgebase platform that uses static Markdown files. ([Source Code](https://github.com/ryanlelek/Raneto)) `MIT` `Nodejs`

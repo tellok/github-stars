@@ -1,6 +1,6 @@
 ---
 project: webpack
-stars: 65963
+stars: 65949
 description: |-
     A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand. Through "loaders", modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON, Coffeescript, LESS, ... and your custom stuff.
 url: https://github.com/webpack/webpack
@@ -30,6 +30,7 @@ url: https://github.com/webpack/webpack
 [![discussions](https://img.shields.io/github/discussions/webpack/webpack)](https://github.com/webpack/webpack/discussions)
 [![discord](https://img.shields.io/discord/1180618526436888586?label=discord&logo=discord&logoColor=white&style=flat)](https://discord.gg/5sxFZPdx2k)
 [![LFX Health Score](https://insights.linuxfoundation.org/api/badge/health-score?project=webpack)](https://insights.linuxfoundation.org/project/webpack)
+[![Agent Friendly](https://agentfriendlycode.com/api/badge/github/webpack/webpack.svg)](https://agentfriendlycode.com/repo/12618)
 
   <h1>webpack</h1>
   <p>
@@ -311,6 +312,10 @@ For information about the governance of the webpack project, see [GOVERNANCE.md]
   **Even Stensberg** <<evenstensberg@gmail.com>> (he/him)
 - [thelarkinn](https://github.com/thelarkinn) -
   **Sean Larkin** <<selarkin@microsoft.com>> (he/him)
+- [xiaoxiaojx](https://github.com/xiaoxiaojx) -
+  **Natsu Xiao** <<xiaojiaixn@gmail.com>> (he/him)
+- [hai-x](https://github.com/hai-x) -
+  **Haijie Xie** <<haijie0619@gmail.com>> (he/him)
 
 ### Maintenance
 

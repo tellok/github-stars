@@ -1,6 +1,6 @@
 ---
 project: cosmiconfig
-stars: 4163
+stars: 4164
 description: |-
     Find and load configuration from a package.json property, rc file, TypeScript module, and more!
 url: https://github.com/cosmiconfig/cosmiconfig

@@ -1,6 +1,6 @@
 ---
 project: eslint-plugin-unicorn
-stars: 5238
+stars: 5246
 description: |-
     More than 300 powerful ESLint rules
 url: https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -13,7 +13,7 @@ url: https://github.com/sindresorhus/eslint-plugin-unicorn
 
 > More than 300 powerful ESLint rules
 
-Most rules target JavaScript and TypeScript, but [some also lint CSS, HTML, JSON, Markdown, and YAML](#non-javascript-files) when used with the matching ESLint language plugin.
+Most rules target JavaScript and TypeScript, but [some also lint CSS, HTML, JSON, Markdown, TOML, and YAML](#non-javascript-files) when used with the matching ESLint language plugin.
 
 [**Propose a new rule ➡**](.github/contributing.md)
 
@@ -161,7 +161,7 @@ export default defineConfig([
 | [no-barrel-files](docs/rules/no-barrel-files.md)                                                           | Disallow barrel files.                                                                                                         |      |    |    |    |
 | [no-blob-to-file](docs/rules/no-blob-to-file.md)                                                           | Disallow unnecessary `Blob` to `File` conversion.                                                                              | ✅ ☑️ |    | 💡 |    |
 | [no-boolean-sort-comparator](docs/rules/no-boolean-sort-comparator.md)                                     | Disallow boolean-returning sort comparators.                                                                                   | ✅ ☑️ |    | 💡 |    |
-| [no-break-in-nested-loop](docs/rules/no-break-in-nested-loop.md)                                           | Disallow `break` and `continue` in nested loops and switches inside loops.                                                     | ✅    |    |    |    |
+| [no-break-in-nested-loop](docs/rules/no-break-in-nested-loop.md)                                           | Disallow `break` and optionally `continue` in nested loops and switches inside loops.                                          | ✅    |    |    |    |
 | [no-canvas-to-image](docs/rules/no-canvas-to-image.md)                                                     | Prefer drawing canvases directly instead of converting them to images.                                                         | ✅ ☑️ |    |    |    |
 | [no-chained-comparison](docs/rules/no-chained-comparison.md)                                               | Disallow chained comparisons such as `a < b < c`.                                                                              | ✅ ☑️ |    | 💡 |    |
 | [no-collection-bracket-access](docs/rules/no-collection-bracket-access.md)                                 | Disallow accessing `Map`, `Set`, `WeakMap`, and `WeakSet` entries with bracket notation.                                       | ✅ ☑️ |    | 💡 |    |
@@ -325,7 +325,7 @@ export default defineConfig([
 | [prefer-classlist-toggle](docs/rules/prefer-classlist-toggle.md)                                           | Prefer using `Element#classList.toggle()` to toggle class names.                                                               | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-code-point](docs/rules/prefer-code-point.md)                                                       | Prefer `String#codePointAt(…)` over `String#charCodeAt(…)` and `String.fromCodePoint(…)` over `String.fromCharCode(…)`.        | ✅ ☑️ |    | 💡 |    |
 | [prefer-combined-guards](docs/rules/prefer-combined-guards.md)                                             | Prefer combining consecutive guards with identical exit statements.                                                            | ✅    | 🔧 |    |    |
-| [prefer-continue](docs/rules/prefer-continue.md)                                                           | Prefer early continues over whole-loop conditional wrapping.                                                                   | ✅    | 🔧 |    |    |
+| [prefer-continue](docs/rules/prefer-continue.md)                                                           | Prefer early continues over conditionals wrapping the remainder of the loop body.                                              | ✅    | 🔧 |    |    |
 | [prefer-date-now](docs/rules/prefer-date-now.md)                                                           | Prefer `Date.now()` to get the number of milliseconds since the Unix Epoch.                                                    | ✅ ☑️ | 🔧 |    |    |
 | [prefer-default-parameters](docs/rules/prefer-default-parameters.md)                                       | Prefer default parameters over reassignment.                                                                                   | ✅ ☑️ |    | 💡 |    |
 | [prefer-direct-iteration](docs/rules/prefer-direct-iteration.md)                                           | Prefer direct iteration over default iterator method calls.                                                                    | ✅ ☑️ | 🔧 |    |    |
@@ -335,7 +335,7 @@ export default defineConfig([
 | [prefer-dom-node-remove](docs/rules/prefer-dom-node-remove.md)                                             | Prefer `childNode.remove()` over `parentNode.removeChild(childNode)`.                                                          | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-dom-node-replace-children](docs/rules/prefer-dom-node-replace-children.md)                         | Prefer `.replaceChildren()` when replacing DOM children.                                                                       | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-dom-node-text-content](docs/rules/prefer-dom-node-text-content.md)                                 | Prefer `.textContent` over `.innerText`.                                                                                       | ✅ ☑️ |    | 💡 |    |
-| [prefer-early-return](docs/rules/prefer-early-return.md)                                                   | Prefer early returns over full-function conditional wrapping.                                                                  | ✅ ☑️ | 🔧 | 💡 |    |
+| [prefer-early-return](docs/rules/prefer-early-return.md)                                                   | Prefer early returns over conditionals wrapping the remainder of the function body.                                            | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-else-if](docs/rules/prefer-else-if.md)                                                             | Prefer `else if` over adjacent `if` statements with related conditions.                                                        | ✅    | 🔧 | 💡 |    |
 | [prefer-error-is-error](docs/rules/prefer-error-is-error.md)                                               | Prefer `Error.isError()` when checking for errors.                                                                             |      | 🔧 |    |    |
 | [prefer-event-target](docs/rules/prefer-event-target.md)                                                   | Prefer `EventTarget` over `EventEmitter`.                                                                                      | ✅ ☑️ |    |    |    |
@@ -362,14 +362,14 @@ export default defineConfig([
 | [prefer-json-import](docs/rules/prefer-json-import.md)                                                     | Prefer JSON imports over reading and parsing JSON files.                                                                       |      |    | 💡 |    |
 | [prefer-keyboard-event-key](docs/rules/prefer-keyboard-event-key.md)                                       | Prefer `KeyboardEvent#key` over deprecated keyboard event properties.                                                          | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-location-assign](docs/rules/prefer-location-assign.md)                                             | Prefer `location.assign()` over assigning to `location.href`.                                                                  | ✅    | 🔧 |    |    |
-| [prefer-logical-operator-over-ternary](docs/rules/prefer-logical-operator-over-ternary.md)                 | Prefer using a logical operator over a ternary.                                                                                | ✅ ☑️ |    | 💡 |    |
+| [prefer-logical-operator-over-ternary](docs/rules/prefer-logical-operator-over-ternary.md)                 | Prefer using a logical operator over a ternary.                                                                                | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-map-from-entries](docs/rules/prefer-map-from-entries.md)                                           | Prefer `new Map()` over `Object.fromEntries()` when using the result as a map.                                                 | ✅ ☑️ | 🔧 |    |    |
 | [prefer-math-abs](docs/rules/prefer-math-abs.md)                                                           | Prefer `Math.abs()` over manual absolute value expressions and symmetric range checks.                                         | ✅ ☑️ | 🔧 |    |    |
 | [prefer-math-constants](docs/rules/prefer-math-constants.md)                                               | Prefer `Math` constants over their approximate numeric values.                                                                 | ✅ ☑️ |    | 💡 |    |
 | [prefer-math-min-max](docs/rules/prefer-math-min-max.md)                                                   | Prefer `Math.min()` and `Math.max()` over ternaries for simple comparisons.                                                    | ✅ ☑️ | 🔧 |    |    |
 | [prefer-math-trunc](docs/rules/prefer-math-trunc.md)                                                       | Prefer `Math.trunc()` for truncating numbers.                                                                                  | ✅ ☑️ | 🔧 | 💡 |    |
 | [prefer-media-feature-range-syntax](docs/rules/prefer-media-feature-range-syntax.md)                       | Prefer modern media feature range syntax.                                                                                      |      | 🔧 | 💡 |    |
-| [prefer-minimal-ternary](docs/rules/prefer-minimal-ternary.md)                                             | Prefer moving ternaries into the minimal varying part of an expression.                                                        | ✅ ☑️ |    |    |    |
+| [prefer-minimal-ternary](docs/rules/prefer-minimal-ternary.md)                                             | Prefer moving ternaries into the minimal varying part of an expression.                                                        | ✅ ☑️ | 🔧 |    |    |
 | [prefer-modern-dom-apis](docs/rules/prefer-modern-dom-apis.md)                                             | Prefer modern DOM APIs.                                                                                                        | ✅ ☑️ | 🔧 |    |    |
 | [prefer-modern-math-apis](docs/rules/prefer-modern-math-apis.md)                                           | Prefer modern `Math` APIs over legacy patterns.                                                                                | ✅ ☑️ | 🔧 |    |    |
 | [prefer-module](docs/rules/prefer-module.md)                                                               | Prefer JavaScript modules (ESM) over CommonJS.                                                                                 | ✅ ☑️ | 🔧 | 💡 |    |
@@ -461,7 +461,7 @@ export default defineConfig([
 
 ### Non-JavaScript files
 
-While most rules target JavaScript and TypeScript, some also lint other file types when used with the corresponding [ESLint language plugin](https://eslint.org/docs/latest/use/configure/plugins#specifying-a-language) such as [`@eslint/css`](https://github.com/eslint/css), [`@eslint/json`](https://github.com/eslint/json), [`@eslint/markdown`](https://github.com/eslint/markdown), [`@html-eslint/eslint-plugin`](https://github.com/yeonjuan/html-eslint), or [`eslint-plugin-yml`](https://github.com/ota-meshi/eslint-plugin-yml). Each such rule declares this with the `meta.languages` field.
+While most rules target JavaScript and TypeScript, some also lint other file types when used with the corresponding [ESLint language plugin](https://eslint.org/docs/latest/use/configure/plugins#specifying-a-language) such as [`@eslint/css`](https://github.com/eslint/css), [`@eslint/json`](https://github.com/eslint/json), [`@eslint/markdown`](https://github.com/eslint/markdown), [`@html-eslint/eslint-plugin`](https://github.com/yeonjuan/html-eslint), [`eslint-plugin-yml`](https://github.com/ota-meshi/eslint-plugin-yml), or [`eslint-plugin-toml`](https://github.com/ota-meshi/eslint-plugin-toml). Each such rule declares this with the `meta.languages` field.
 
 When linting JSON, CSS, Markdown, HTML, or other non-JavaScript languages in the same ESLint config, scope Unicorn's JavaScript rule config objects with `files`. Include TypeScript/JSX extensions there only if your config already provides the matching parser/language setup for those files.
 
@@ -472,6 +472,7 @@ import css from '@eslint/css';
 import json from '@eslint/json';
 import markdown from '@eslint/markdown';
 import html from '@html-eslint/eslint-plugin';
+import toml from 'eslint-plugin-toml';
 import unicorn from 'eslint-plugin-unicorn';
 import {defineConfig} from 'eslint/config';
 
@@ -536,6 +537,26 @@ export default defineConfig([
 			'unicorn/prefer-https': 'error',
 		},
 	},
+	{
+		files: ['**/*.toml'],
+		plugins: {
+			toml,
+			unicorn,
+		},
+		language: 'toml/toml',
+		rules: {
+			'unicorn/comment-content': 'error',
+			'unicorn/escape-case': 'error',
+			'unicorn/expiring-todo-comments': 'error',
+			'unicorn/filename-case': 'error',
+			'unicorn/no-abusive-eslint-disable': 'error',
+			'unicorn/no-empty-file': 'error',
+			'unicorn/no-manually-wrapped-comments': 'error',
+			'unicorn/number-literal-case': 'error',
+			'unicorn/numeric-separators-style': 'error',
+			'unicorn/prefer-https': 'error',
+		},
+	},
 ]);
 ```
 
@@ -551,28 +572,32 @@ These rules work on **any** file type:
 
 These rules also work on specific non-JavaScript languages:
 
-| Name | CSS | HTML | JSON | Markdown | YAML |
-| :-- | :-: | :-: | :-: | :-: | :-: |
-| [`expiring-todo-comments`](docs/rules/expiring-todo-comments.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [`no-deprecated-css-features`](docs/rules/no-deprecated-css-features.md) | ✅ |  |  |  |  |
-| [`no-duplicate-css-selectors`](docs/rules/no-duplicate-css-selectors.md) | ✅ |  |  |  |  |
-| [`no-duplicate-font-family-names`](docs/rules/no-duplicate-font-family-names.md) | ✅ |  |  |  |  |
-| [`no-empty-file`](docs/rules/no-empty-file.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [`no-invalid-file-input-accept`](docs/rules/no-invalid-file-input-accept.md) |  | ✅ |  |  |  |
-| [`no-invalid-media-features`](docs/rules/no-invalid-media-features.md) | ✅ |  |  |  |  |
-| [`no-manually-wrapped-comments`](docs/rules/no-manually-wrapped-comments.md) |  |  | ✅ |  |  |
-| [`no-missing-local-resource`](docs/rules/no-missing-local-resource.md) | ✅ | ✅ |  | ✅ |  |
-| [`no-nesting-with-mixed-specificity`](docs/rules/no-nesting-with-mixed-specificity.md) | ✅ |  |  |  |  |
-| [`no-redundant-nested-style-rules`](docs/rules/no-redundant-nested-style-rules.md) | ✅ |  |  |  |  |
-| [`no-shorthand-property-overrides`](docs/rules/no-shorthand-property-overrides.md) | ✅ |  |  |  |  |
-| [`no-transition-all`](docs/rules/no-transition-all.md) | ✅ |  |  |  |  |
-| [`no-unknown-css-annotations`](docs/rules/no-unknown-css-annotations.md) | ✅ |  |  |  |  |
-| [`no-unknown-pseudo-selectors`](docs/rules/no-unknown-pseudo-selectors.md) | ✅ |  |  |  |  |
-| [`no-unscoped-css-nesting-selector`](docs/rules/no-unscoped-css-nesting-selector.md) | ✅ |  |  |  |  |
-| [`prefer-explicit-viewport-units`](docs/rules/prefer-explicit-viewport-units.md) | ✅ |  |  |  |  |
-| [`prefer-media-feature-range-syntax`](docs/rules/prefer-media-feature-range-syntax.md) | ✅ |  |  |  |  |
-| [`require-frontmatter-fields`](docs/rules/require-frontmatter-fields.md) |  |  |  | ✅ |  |
-| [`text-encoding-identifier-case`](docs/rules/text-encoding-identifier-case.md) | ✅ | ✅ |  |  |  |
+| Name | CSS | HTML | JSON | Markdown | TOML | YAML |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: |
+| [`escape-case`](docs/rules/escape-case.md) |  |  |  |  | ✅ |  |
+| [`expiring-todo-comments`](docs/rules/expiring-todo-comments.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [`no-deprecated-css-features`](docs/rules/no-deprecated-css-features.md) | ✅ |  |  |  |  |  |
+| [`no-duplicate-css-selectors`](docs/rules/no-duplicate-css-selectors.md) | ✅ |  |  |  |  |  |
+| [`no-duplicate-font-family-names`](docs/rules/no-duplicate-font-family-names.md) | ✅ |  |  |  |  |  |
+| [`no-empty-file`](docs/rules/no-empty-file.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [`no-invalid-file-input-accept`](docs/rules/no-invalid-file-input-accept.md) |  | ✅ |  |  |  |  |
+| [`no-invalid-media-features`](docs/rules/no-invalid-media-features.md) | ✅ |  |  |  |  |  |
+| [`no-manually-wrapped-comments`](docs/rules/no-manually-wrapped-comments.md) |  |  | ✅ |  | ✅ |  |
+| [`no-missing-local-resource`](docs/rules/no-missing-local-resource.md) | ✅ | ✅ |  | ✅ |  |  |
+| [`no-nesting-with-mixed-specificity`](docs/rules/no-nesting-with-mixed-specificity.md) | ✅ |  |  |  |  |  |
+| [`no-redundant-nested-style-rules`](docs/rules/no-redundant-nested-style-rules.md) | ✅ |  |  |  |  |  |
+| [`no-shorthand-property-overrides`](docs/rules/no-shorthand-property-overrides.md) | ✅ |  |  |  |  |  |
+| [`no-transition-all`](docs/rules/no-transition-all.md) | ✅ |  |  |  |  |  |
+| [`no-unknown-css-annotations`](docs/rules/no-unknown-css-annotations.md) | ✅ |  |  |  |  |  |
+| [`no-unknown-pseudo-selectors`](docs/rules/no-unknown-pseudo-selectors.md) | ✅ |  |  |  |  |  |
+| [`no-unscoped-css-nesting-selector`](docs/rules/no-unscoped-css-nesting-selector.md) | ✅ |  |  |  |  |  |
+| [`number-literal-case`](docs/rules/number-literal-case.md) |  |  |  |  | ✅ |  |
+| [`numeric-separators-style`](docs/rules/numeric-separators-style.md) |  |  |  |  | ✅ |  |
+| [`prefer-explicit-viewport-units`](docs/rules/prefer-explicit-viewport-units.md) | ✅ |  |  |  |  |  |
+| [`prefer-media-feature-range-syntax`](docs/rules/prefer-media-feature-range-syntax.md) | ✅ |  |  |  |  |  |
+| [`require-frontmatter-fields`](docs/rules/require-frontmatter-fields.md) |  |  |  | ✅ |  |  |
+| [`string-content`](docs/rules/string-content.md) |  |  |  |  | ✅ |  |
+| [`text-encoding-identifier-case`](docs/rules/text-encoding-identifier-case.md) | ✅ | ✅ |  |  |  |  |
 
 <!-- end auto-generated non-js languages list -->
 

@@ -1,10 +1,13 @@
 ---
 project: axios
-stars: 109205
+stars: 109228
 description: |-
     Promise based HTTP client for the browser and node.js
 url: https://github.com/axios/axios
 ---
+
+> [!IMPORTANT]
+> [**Get Security Updates for Axios v0 →**](https://www.herodevs.com/support/nes-for-axios?utm_source=axios-site&utm_medium=referral&utm_campaign=nes-for-axios_global&utm_content=landing-page_none_20260924_a)
 
 <h3 align="center">💎 Platinum sponsors <br /></h3>
 <table align="center">
@@ -413,7 +416,7 @@ url: https://github.com/axios/axios
         </td>
         <td align="center" width="33.333333333333336%">
             <a
-                href="https://www.herodevs.com/"
+                href="https://www.herodevs.com/support/nes-for-axios?utm_source=axios-site&amp;utm_medium=referral&amp;utm_campaign=nes-for-axios_global&amp;utm_content=landing-page_none_20260924_a"
                 style="padding: 10px; display: inline-block"
                 target="_blank"
             >
@@ -431,7 +434,7 @@ url: https://github.com/axios/axios
             </p>
             <p align="center">
                 <a
-                    href="https://www.herodevs.com/"
+                    href="https://www.herodevs.com/support/nes-for-axios?utm_source=axios-site&amp;utm_medium=referral&amp;utm_campaign=nes-for-axios_global&amp;utm_content=landing-page_none_20260924_a"
                     target="_blank"
                     ><b>herodevs.com</b></a
                 >

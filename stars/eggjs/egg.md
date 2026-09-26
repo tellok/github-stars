@@ -2,7 +2,7 @@
 project: egg
 stars: 18980
 description: |-
-    🥚🥚🥚🥚 Born to build better enterprise frameworks and apps with Node.js & Koa. https://307.run/eggcode
+    🥚🥚🥚🥚 Born to build better enterprise frameworks and apps with Node.js & Koa. https://codewiki.google/github.com/eggjs/egg
 url: https://github.com/eggjs/egg
 ---
 

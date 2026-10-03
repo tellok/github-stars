@@ -1,6 +1,6 @@
 ---
 project: awesome-selfhosted
-stars: 322008
+stars: 323662
 description: |-
     A list of Free Software network services and web applications which can be hosted on your own servers
 url: https://github.com/awesome-selfhosted/awesome-selfhosted
@@ -162,7 +162,7 @@ _Related: [Database Management](#database-management), [Personal Dashboards](#pe
 - [Redash](http://redash.io) - Connect and query your data sources, build dashboards to visualize data and share them with your company. ([Source Code](https://github.com/getredash/redash)) `BSD-2-Clause` `Docker`
 - [Rybbit](https://rybbit.com/) - Web and products analytics that is easy to setup and more intuitive (alternative to Google Analytics). ([Demo](https://demo.rybbit.com/1), [Source Code](https://github.com/rybbit-io/rybbit)) `AGPL-3.0` `Docker`
 - [Shaper](https://taleshape.com/shaper/docs) - Build Data Dashboards all in SQL. Powered by DuckDB. ([Demo](https://demo.taleshape.com/view/pvggvdpiwb9wlyppuqbyx0nt), [Source Code](https://github.com/taleshape-com/shaper)) `MPL-2.0` `Docker/Nodejs/Python/Go`
-- [Socioboard](https://github.com/socioboard/Socioboard-5.0) `⚠` - Social media management, analytics, and reporting platform supporting nine social media networks out-of-the-box. `GPL-3.0` `Nodejs`
+- [Socioboard](https://github.com/Socioboard-developers/Socioboard-5.0) `⚠` - Social media management, analytics, and reporting platform supporting nine social media networks out-of-the-box. `GPL-3.0` `Nodejs`
 - [Statistics for Strava](https://github.com/robiningelbrecht/statistics-for-strava) `⚠` - Statistics dashboard generated from Strava data. ([Demo](https://statistics-for-strava.robiningelbrecht.be/)) `AGPL-3.0` `Docker`
 - [Superset](http://superset.apache.org/) - Modern data exploration and visualization platform. ([Source Code](https://github.com/apache/superset)) `Apache-2.0` `Python`
 - [Swetrix](https://swetrix.com/) - Web analytics which track your site's traffic, monitor your site's speed, analyse user sessions and pageflows, see the user flows and more (alternative to Google Analytics). ([Demo](https://swetrix.com/projects/STEzHcB1rALV), [Source Code](https://github.com/Swetrix/selfhosting)) `AGPL-3.0` `Docker`
@@ -359,6 +359,7 @@ _Related: [Groupware](#groupware)_
 - [Novu](https://novu.co/) - Notification infrastructure for developers. ([Source Code](https://github.com/novuhq/novu/)) `MIT` `Docker/Nodejs`
 - [ntfy](https://ntfy.sh/) - Push notifications to phone or desktop using HTTP PUT/POST, with Android app, CLI and web app, similar to Pushover and Gotify. ([Demo](https://ntfy.sh/app), [Source Code](https://github.com/binwiederhier/ntfy), [Clients](https://github.com/binwiederhier/ntfy-android)) `Apache-2.0/GPL-2.0` `Go/Docker/K8S`
 - [One Time Secret](https://docs.onetimesecret.com) - Share sensitive information securely with self-destructing links that are only viewable once. ([Demo](https://onetimesecret.com), [Source Code](https://github.com/onetimesecret/onetimesecret)) `MIT` `Docker/Ruby/Nodejs`
+- [OpenWA](https://www.open-wa.org) `⚠` - WhatsApp API gateway exposing messaging as REST endpoints, with a web dashboard, multi-account sessions, and webhook events (alternative to WhatsApp Business API providers). ([Source Code](https://github.com/rmyndharis/OpenWA), [Clients](https://github.com/rmyndharis/OpenWA-plugins)) `MIT` `Docker`
 - [OTS](https://ots.fyi/) - One-Time-Secret sharing platform with a symmetric 256bit AES encryption in the browser. ([Source Code](https://github.com/Luzifer/ots)) `Apache-2.0` `Go`
 - [PushBits](https://github.com/pushbits/server) - Notification server for relaying push notifications via Matrix, similar to PushBullet and Gotify. `ISC` `Go`
 - [RetroShare](https://retroshare.cc) - Secured and decentralized communication system. Offers decentralized chat, forums, messaging, file transfer. ([Source Code](https://github.com/RetroShare/RetroShare)) `GPL-2.0` `C++`
@@ -1897,7 +1898,7 @@ Software for easy installation, management and configuration of self-hosted serv
 - [Sandstorm](https://sandstorm.io/) - Personal server for running self-hosted apps easily and securely. ([Demo](https://demo.sandstorm.io/), [Source Code](https://github.com/sandstorm-io/sandstorm)) `Apache-2.0` `C++/Shell`
 - [Self Host Blocks](https://github.com/ibizaman/selfhostblocks) `⚠` - Modular server management based on NixOS modules and focused on best practices. `AGPL-3.0` `Nix`
 - [StartOS](https://start9.com) - Browser-based, graphical Operating System (OS) that makes running a personal server as easy as running a personal computer. ([Source Code](https://github.com/Start9Labs/start-technologies)) `MIT` `Rust`
-- [Syncloud](https://syncloud.org/) - Your own online file storage, social network or email server. ([Source Code](https://github.com/syncloud/platform)) `GPL-3.0` `Go/Shell`
+- [Syncloud](https://syncloud.org/) - OS with an app store and automatic updates for apps such as Nextcloud, Jellyfin, Bitwarden and Paperless, including HTTPS, a domain name and remote access without a public IP. ([Source Code](https://github.com/syncloud/platform)) `GPL-3.0` `Go/Shell`
 - [Tipi](https://runtipi.io/) - Homeserver manager. One command setup, one click installs for your favorites self-hosted apps. ([Source Code](https://github.com/runtipi/runtipi)) `GPL-3.0` `Shell`
 - [UBOS](https://ubos.net/) - Linux distro that runs on indie boxes (personal servers and IoT devices). Single-command installation and management of apps - Jenkins, Mediawiki, Owncloud, WordPress, etc., and other features. `GPL-3.0` `Perl`
 - [Websoft9](https://www.websoft9.com) `⚠` - GitOps-driven, multi-application hosting for cloud servers and home servers, one-click deployment of 200+ open source apps. ([Demo](https://www.websoft9.com/demo), [Source Code](https://github.com/websoft9/websoft9), [Clients](https://www.websoft9.com/apps)) `LGPL-3.0` `Shell/Python`

@@ -1,6 +1,6 @@
 ---
 project: node-lessons
-stars: 16414
+stars: 16403
 description: |-
     :closed_book:《Node.js 包教不包会》 by alsotang
 url: https://github.com/alsotang/node-lessons

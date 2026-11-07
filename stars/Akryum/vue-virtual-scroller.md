@@ -29,3 +29,7 @@ This package ships ESM only in the current Vue 3 line. Use it with an ESM-aware 
   </a>
 </p>
 
+## Benchmarks
+
+Run `pnpm benchmark:preview` for interactive workloads or `pnpm benchmark` for paired Chromium/Firefox reports. See [benchmark suite](packages/benchmarks/README.md) for profiles, metrics, and commands.
+

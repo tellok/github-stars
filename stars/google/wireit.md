@@ -1,6 +1,6 @@
 ---
 project: wireit
-stars: 6430
+stars: 6432
 description: |-
     Wireit upgrades your npm/pnpm/yarn scripts to make them smarter and more efficient.
 url: https://github.com/google/wireit
@@ -380,6 +380,19 @@ Note the limit is applied per script, so a package with many cached scripts will
 still use a multiple of this space. To free all of it at once, use
 `rm -rf .wireit/*/cache .wireit/*/temp .wireit/trash`.
 
+Linked Git worktrees (`git worktree add`) keep their own `.wireit` cache
+folders. Set `WIREIT_CACHE_WORKTREES=true` to store a linked worktree's local
+cache in the main worktree's corresponding `.wireit` folders. Shared entries
+are named from package-relative paths, so both worktrees hit the same entry.
+Any other value keeps each worktree's own cache and the same entry names as
+before. Worktrees of bare clones, submodules, and checkouts with a separate
+git dir also keep their own cache, since the main git dir's parent isn't a
+checkout. Lock, fingerprint, and output-manifest files stay in the current
+worktree. Fingerprints and GitHub Actions caching are unchanged.
+
+Restored files are copied verbatim. Wireit does not rewrite output contents
+that embed another checkout's absolute path.
+
 ### GitHub Actions caching
 
 In _[GitHub Actions](https://github.com/features/actions)_ mode, Wireit caches
@@ -414,8 +427,8 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -442,11 +455,11 @@ Cleaning is enabled by default as long as the
 [`output`](#input-and-output-files) array is defined. To change this behavior,
 set the `wireit.<script>.clean` property to one of these values:
 
-| Setting             | Description                                                                                                                                                                                                                                                                                     |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `true`              | Clean before every run (the default).                                                                                                                                                                                                                                                           |
-| `"if-file-deleted"` | Clean only if an input file has been deleted since the last run.<br><br>Use this option for tools that have incremental build support, but do not clean up outdated output when a source file has been deleted, such as `tsc --build` (see [TypeScript](#typescript) for more on this example.) |
-| `false`             | Do not clean.<br><br>Only use this option if you are certain that the script command itself already takes care of removing outdated files from previous runs.                                                                                                                                   |
+| Setting             | Description                                                                                                                                                                                                                                                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `true`              | Clean before every run (the default).                                                                                                                                                                                                                                                                                        |
+| `"if-file-deleted"` | Clean if an input file has been deleted, or if an output file has changed since the last run.<br><br>Use this option for tools that have incremental build support, but do not clean up outdated output when a source file has been deleted, such as `tsc --build` (see [TypeScript](#typescript) for more on this example.) |
+| `false`             | Do not clean.<br><br>Only use this option if you are certain that the script command itself already takes care of removing outdated files from previous runs.                                                                                                                                                                |
 
 ## Watch mode
 
@@ -813,7 +826,7 @@ This section contains advice about integrating specific build tools with Wireit.
       "command": "tsc --build --pretty",
       "clean": "if-file-deleted",
       "files": ["src/**/*.ts", "tsconfig.json"],
-      "output": ["lib/**", ".tsbuildinfo"]
+      "output": ["lib/**", "*.tsbuildinfo"]
     }
   }
 }
@@ -883,6 +896,7 @@ The following properties can be set inside `wireit.<script>` objects in
 | `env[i].default`          | `string \| undefined`              | `undefined`             | Default value to use when an external [environment variable](#environment-variables) is not provided.                           |
 | `service`                 | `boolean`                          | `false`                 | [Whether this script is long-running, e.g. a server](#cleaning-output).                                                         |
 | `packageLocks`            | `string[]`                         | `['package-lock.json']` | [Names of package lock files](#package-locks).                                                                                  |
+| `description`             | `string`                           | `undefined`             | A human-readable description of what this script does. Wireit does not use it.                                                  |
 
 ### Dependency syntax
 
@@ -903,6 +917,7 @@ The following environment variables affect the behavior of Wireit:
 | `WIREIT_FAILURES`          | [How to handle script failures](#failures-and-errors).<br><br>Options:<br><ul><li>[`no-new`](#failures-and-errors) (default): Allow running scripts to finish, but don't start new ones.</li><li>[`continue`](#continue): Allow running scripts to continue, and start new ones unless any of their dependencies failed.</li><li>[`kill`](#kill): Immediately kill running scripts, and don't start new ones.</li></ul>                                                                                                                                                                                                                                                                   |
 | `WIREIT_LOGGER`            | How to present progress and results on the command line.<br><br>Options:<br><ul><li>`quiet` (default for normal execution): Writes a single dynamically updating line summarizing progress. Only passes along stdout and stderr from commands if there's a failure, or if the command is a service.</li><li>`quiet-ci` (default when `env.CI` or `!stdout.isTTY`): like `quiet` but optimized for non-interactive environments, like GitHub Actions runners.</li><li>`simple`: A verbose logger that presents clear information about the work that Wireit is doing.</li><li>`metrics`: Like `simple`, but also presents a summary table of results once a command is finished.</li></ul> |
 | `WIREIT_CACHE_MAX_ENTRIES` | Maximum number of [local cache](#local-caching) entries to retain per script.<br><br>Defaults to `10`.<br><br>Must be a positive integer or `infinity`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `WIREIT_CACHE_WORKTREES`   | Set to `true` to store a linked Git worktree's [local cache](#local-caching) in the main worktree's corresponding `.wireit` folders.<br><br>Must be exactly `true`. If unset or any other value, interpreted as `false`. Does not affect fingerprints or GitHub Actions caching.                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `WIREIT_DEBUG_LOG_FILE`    | Path to a file which will receive detailed event logging.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `WIREIT_MAX_OPEN_FILES`    | Limits the number of file descriptors Wireit will have open concurrently. Prevents resource exhaustion when checking large numbers of cached files. Set to a lower number if you hit file descriptor limits.<br><br>Defaults to `200`.<br><br>Must be a positive integer.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `WIREIT_PARALLEL`          | [Maximum number of scripts to run at one time](#parallelism).<br><br>Defaults to 2×logical CPU cores.<br><br>Must be a positive integer or `infinity`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -954,6 +969,8 @@ cache](#caching).
 - The SHA256 content hashes of all files matching `files`.
 - The SHA256 content hashes of all files matching `packageLocks` in the current
   package and all parent directories.
+- The `name`, `main`, `type`, `exports`, `imports`, `types`, `typings`, and
+  `typesVersions` fields of the package's `package.json` file.
 - The environment variable values configured in `env`.
 - The system platform (e.g. `linux`, `win32`).
 - The system CPU architecture (e.g. `x64`).

@@ -1,6 +1,6 @@
 ---
 project: iptv
-stars: 140496
+stars: 143511
 description: |-
     Collection of publicly available IPTV channels from all over the world
 url: https://github.com/iptv-org/iptv
@@ -85,5 +85,4 @@ No video files are stored in this repository. The repository simply contains use
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](LICENSE)
-
 

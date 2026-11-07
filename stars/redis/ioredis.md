@@ -1,6 +1,6 @@
 ---
 project: ioredis
-stars: 15337
+stars: 15352
 description: |-
     🚀 A robust, performance-focused, and full-featured Redis client for Node.js.
 url: https://github.com/redis/ioredis
@@ -607,6 +607,12 @@ const redis = new Redis({
 });
 ```
 
+By default, commands defined with the `scripts` constructor option are inherited by
+`redis.duplicate()`, because it copies the connection options. Commands added
+later with `defineCommand()` belong to that instance and are not inherited.
+Use the `scripts` option when duplicated connections need the same custom
+commands, or call `defineCommand()` on each new instance.
+
 ### TypeScript Usages
 
 You can refer to [the example](examples/typescript/scripts.ts) for how to declare your custom commands.
@@ -1143,6 +1149,8 @@ const redis = new Redis({
 });
 ```
 
+Redis node connection retries continue with the next known Sentinel and wrap around the list. With `failoverDetector` enabled, reconnecting after a ready connection closes starts with the Sentinel that resolved it.
+
 Besides the `retryStrategy` option, there's also a `sentinelRetryStrategy` in Sentinel mode which will be invoked when all the sentinel nodes are unreachable during connecting. If `sentinelRetryStrategy` returns a valid delay time, ioredis will try to reconnect from scratch. The default value of `sentinelRetryStrategy` is:
 
 ```javascript
@@ -1299,19 +1307,15 @@ Sometimes you may want to send a command to multiple nodes (masters or slaves) o
 `Cluster#nodes()` accepts a parameter role, which can be "master", "slave" and "all" (default), and returns an array of `Redis` instance. For example:
 
 ```javascript
-// Send `FLUSHDB` command to all slaves:
+// Send `PING` command to all slaves:
 const slaves = cluster.nodes("slave");
-Promise.all(slaves.map((node) => node.flushdb()));
+Promise.all(slaves.map((node) => node.ping()));
 
 // Get keys of all the masters:
 const masters = cluster.nodes("master");
-Promise.all(
-  masters
-    .map((node) => node.keys())
-    .then((keys) => {
-      // keys: [['key1', 'key2'], ['key3', 'key4']]
-    })
-);
+Promise.all(masters.map((node) => node.keys("*"))).then((keys) => {
+  // keys: [['key1', 'key2'], ['key3', 'key4']]
+});
 ```
 
 ### NAT Mapping
@@ -1373,10 +1377,14 @@ However there are some differences when using transaction and pipeline in Cluste
 0. All keys in a pipeline should belong to slots served by the same node, since ioredis sends all commands in a pipeline to the same node.
 1. You can't use `multi` without pipeline (aka `cluster.multi({ pipeline: false })`). This is because when you call `cluster.multi({ pipeline: false })`, ioredis doesn't know which node the `multi` command should be sent to.
 
-When any commands in a pipeline receives a `MOVED` or `ASK` error, ioredis will resend the whole pipeline to the specified node automatically if all of the following conditions are satisfied:
+When a command in a pipeline (including an auto pipeline) receives its own `MOVED`, `ASK` or `TRYAGAIN` error, ioredis resends only that command, the same way it retries a command sent without a pipeline: it follows `retryDelayOnMoved`, `retryDelayOnTryAgain` and `maxRedirections`, and a `MOVED` updates the slot table. Redis returns these errors before running the command, so the command was not executed. Commands that succeeded are not sent again, and every result stays at its original position. The pipeline resolves after the last resent command settles. With `maxRedirections: 0`, nothing is resent and the error is returned as is.
+
+Commands inside `multi()`/`exec()` are not resent one by one. In a pipeline that contains `multi()`, only read-only commands outside the transaction are resent on their own; the transaction and any other write are left to the whole-pipeline retry. For a transaction, and for other errors such as `CLUSTERDOWN` or a closed connection, ioredis resends the whole pipeline automatically if all of the following conditions are satisfied:
 
 0. All errors received in the pipeline are the same. For example, we won't resend the pipeline if we got two `MOVED` errors pointing to different nodes.
 1. All commands executed successfully are readonly commands. This makes sure that resending the pipeline won't have side effects.
+
+A pipeline does not guarantee the order in which its commands take effect when one of them is resent. For example, in a pipeline of `MSET {t}a 1 {t}b 1` followed by `SET {t}a 2`, sent while `{t}b` is being migrated, the `MSET` can get `TRYAGAIN` while the `SET` succeeds. When the `MSET` is resent later, `{t}a` ends as `1`. Commands sent without a pipeline in the same tick behave the same way. If your commands must take effect in a fixed order, send them in a `multi()` transaction on keys that share a hash tag.
 
 ### Pub/Sub
 

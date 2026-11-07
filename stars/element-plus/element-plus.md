@@ -1,6 +1,6 @@
 ---
 project: element-plus
-stars: 27798
+stars: 27838
 description: |-
     🎉 A Vue.js 3 UI Library made by Element team
 url: https://github.com/element-plus/element-plus
@@ -58,7 +58,7 @@ You can also try out Element Plus with its built-in component playground.
 
 #### Try it with our built-in playground
 
-[Playground](https://element-plus.run/)
+[Playground](https://run.element-plus.org/)
 
 #### Try it with CodeSandbox
 
